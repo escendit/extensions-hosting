@@ -7,7 +7,7 @@ updates:
       interval: weekly
       day: sunday
       timezone: Europe/Zurich
-      time: 01:30
+      time: "01:30"
     labels:
       - dependencies/github-actions
 
@@ -17,7 +17,7 @@ updates:
     schedule:
       interval: daily
       timezone: Europe/Zurich
-      time: 04:00
+      time: "04:00"
     labels:
       - dependencies/containers
 
@@ -28,18 +28,17 @@ updates:
       interval: weekly
       day: sunday
       timezone: Europe/Zurich
-      time: 02:00
+      time: "02:00"
     labels:
       - dependencies/dotnet-sdk
     groups:
       dotnet-next:
         update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
+          - major
+          - minor
       dotnet-updates:
-        ignore:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
+        update-types:
+          - patch
 
   # NuGet
   - package-ecosystem: nuget
@@ -47,19 +46,19 @@ updates:
     schedule:
       interval: daily
       timezone: Europe/Zurich
-      time: 03:00
+      time: "03:00"
     labels:
       - dependencies/nuget
     groups:
       # Versioning
       versioning-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - major
         patterns:
           - "Asp.Versioning.*"
       versioning-next:
         update-types:
-          - "version-update:semver-major"
+          - !major
         patterns:
           - "Asp.Versioning.*"
 
