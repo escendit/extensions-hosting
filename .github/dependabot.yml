@@ -53,34 +53,36 @@ updates:
       # Versioning
       versioning-updates:
         update-types:
-          - major
+          - minor
+          - patch
         patterns:
           - "Asp.Versioning.*"
       versioning-next:
         update-types:
-          - minor
-          - patch
+          - major
         patterns:
           - "Asp.Versioning.*"
 
       # Aspire
       aspire-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Aspire"
           - "Aspire.*"
       aspire-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Aspire"
           - "Aspire.*"
 
       # .NET with Packages that start with Microsoft namespace
       dotnet-microsoft-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Microsoft.*"
         exclude-patterns:
@@ -96,126 +98,135 @@ updates:
           - "Microsoft.SourceLink.GitHub"
       dotnet-microsoft-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Microsoft.*"
 
       # .NET with Packages that start with System namespace
       dotnet-system-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "System"
           - "System.*"
       dotnet-system-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "System"
           - "System.*"
 
       # Microsoft Orleans
       orleans-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Microsoft.Orleans.*"
       orleans-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Microsoft.Orleans.*"
 
       # Open Telemetry
       observability-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "OpenTelemetry.*"
       observability-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "OpenTelemetry.*"
 
       # FluentMigrator
       fluent-migrator-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "FluentMigrator"
           - "FluentMigrator.*"
       fluent-migrator-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "FluentMigrator"
           - "FluentMigrator.*"
 
       # Npgsql
       npgsql-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Npgsql"
           - "Npgsql.*"
       npgsql-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Npgsql"
           - "Npgsql.*"
 
       # Spectre
       spectre-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Spectre.Console.Cli"
           - "Spectre.Console.Cli.*"
       spectre-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Spectre.Console.Cli"
           - "Spectre.Console.Cli.*"
 
       # Swashbuckle
       swashbuckle-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Swashbuckle.AspNetCore"
           - "Swashbuckle.AspNetCore.*"
       swashbuckle-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Swashbuckle.AspNetCore"
           - "Swashbuckle.AspNetCore.*"
 
       # Temporal
       temporal-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "Temporalio"
           - "Temporalio.*"
       temporal-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "Temporalio"
           - "Temporalio.*"
 
       # xunit
       xunit-updates:
-        ignore:
-          - "version-update:semver-major"
+        update-types:
+          - minor
+          - patch
         patterns:
           - "xunit.*"
       xunit-next:
         update-types:
-          - "version-update:semver-major"
+          - major
         patterns:
           - "xunit.*"
