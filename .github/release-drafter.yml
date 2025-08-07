@@ -1,0 +1,60 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+change-template: "- $TITLE by @$AUTHOR (#$NUMBER)"
+no-changes-template: "- No changes"
+
+prerelease: true
+prerelease-identifier: rc
+include-pre-releases: true
+
+categories:
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
+  - title: "🚀 New Features"
+    labels:
+      - "enhancement"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "bug"
+  - title: "🚨 Security Updates"
+    labels:
+      - "security"
+  - title: "🔄 Dependency Updates"
+    collapse-after: 3
+    labels:
+      - "dependencies/github-actions"
+      - "dependencies/containers"
+      - "dependencies/dotnet-sdk"
+      - "dependencies/nuget"
+
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+  patch:
+    labels:
+      - "patch"
+  default: patch
+template: |
+  $CHANGES
+
+  ## 👨🏼‍💻 Contributors
+
+  $CONTRIBUTORS
+autolabeler:
+  - label: "dependencies/github-actions"
+    files:
+      - ".github/**/*"
+  - label: "dependencies/dotnet-sdk"
+    files:
+      - "global.json"
+  - label: "dependencies/nuget"
+    files:
+      - "Directory.Packages.props"
+  - label: "documentation"
+    files:
+      - "docs/**/*"
