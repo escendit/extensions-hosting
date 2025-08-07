@@ -58,7 +58,8 @@ updates:
           - "Asp.Versioning.*"
       versioning-next:
         update-types:
-          - !major
+          - minor
+          - patch
         patterns:
           - "Asp.Versioning.*"
 
