@@ -1,0 +1,221 @@
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      timezone: Europe/Zurich
+      time: 01:30
+    labels:
+      - dependencies/github-actions
+
+  # Docker
+  - package-ecosystem: docker
+    directory: /src
+    schedule:
+      interval: daily
+      timezone: Europe/Zurich
+      time: 04:00
+    labels:
+      - dependencies/containers
+
+  # .NET SDK
+  - package-ecosystem: dotnet-sdk
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      timezone: Europe/Zurich
+      time: 02:00
+    labels:
+      - dependencies/dotnet-sdk
+    groups:
+      dotnet-next:
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      dotnet-updates:
+        ignore:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+
+  # NuGet
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: daily
+      timezone: Europe/Zurich
+      time: 03:00
+    labels:
+      - dependencies/nuget
+    groups:
+      # Versioning
+      versioning-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Asp.Versioning.*"
+      versioning-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Asp.Versioning.*"
+
+      # Aspire
+      aspire-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Aspire"
+          - "Aspire.*"
+      aspire-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Aspire"
+          - "Aspire.*"
+
+      # .NET with Packages that start with Microsoft namespace
+      dotnet-microsoft-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Microsoft.*"
+        exclude-patterns:
+          - "Microsoft.CodeAnalysis.PublicApiAnalyzers"
+          - "Microsoft.Extensions.Diagnostics.ResourceMonitoring"
+          - "Microsoft.Extensions.Http.Resilience"
+          - "Microsoft.Extensions.ServiceDiscovery"
+          - "Microsoft.IdentityModel.Protocols.OpenIdConnect"
+          - "Microsoft.Kiota.*"
+          - "Microsoft.NET.Test.Sdk"
+          - "Microsoft.Orleans.*"
+          - "Microsoft.Sbom.Targets"
+          - "Microsoft.SourceLink.GitHub"
+      dotnet-microsoft-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Microsoft.*"
+
+      # .NET with Packages that start with System namespace
+      dotnet-system-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "System"
+          - "System.*"
+      dotnet-system-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "System"
+          - "System.*"
+
+      # Microsoft Orleans
+      orleans-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Microsoft.Orleans.*"
+      orleans-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Microsoft.Orleans.*"
+
+      # Open Telemetry
+      observability-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "OpenTelemetry.*"
+      observability-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "OpenTelemetry.*"
+
+      # FluentMigrator
+      fluent-migrator-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "FluentMigrator"
+          - "FluentMigrator.*"
+      fluent-migrator-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "FluentMigrator"
+          - "FluentMigrator.*"
+
+      # Npgsql
+      npgsql-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Npgsql"
+          - "Npgsql.*"
+      npgsql-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Npgsql"
+          - "Npgsql.*"
+
+      # Spectre
+      spectre-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Spectre.Console.Cli"
+          - "Spectre.Console.Cli.*"
+      spectre-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Spectre.Console.Cli"
+          - "Spectre.Console.Cli.*"
+
+      # Swashbuckle
+      swashbuckle-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Swashbuckle.AspNetCore"
+          - "Swashbuckle.AspNetCore.*"
+      swashbuckle-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Swashbuckle.AspNetCore"
+          - "Swashbuckle.AspNetCore.*"
+
+      # Temporal
+      temporal-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "Temporalio"
+          - "Temporalio.*"
+      temporal-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "Temporalio"
+          - "Temporalio.*"
+
+      # xunit
+      xunit-updates:
+        ignore:
+          - "version-update:semver-major"
+        patterns:
+          - "xunit.*"
+      xunit-next:
+        update-types:
+          - "version-update:semver-major"
+        patterns:
+          - "xunit.*"
