@@ -1,7 +1,4 @@
 <Project>
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
     <PackageVersion Include="Aspire.Hosting" Version="9.4.0"/>
@@ -15,12 +12,10 @@
     <PackageVersion Include="CommunityToolkit.HighPerformance" Version="8.4.0"/>
     <PackageVersion Include="coverlet.collector" Version="6.0.4"/>
     <PackageVersion Include="Dapper" Version="2.1.66"/>
-    <PackageVersion Include="Escendit.Tools.Branding" Version="1.0.3-rc.3"/>
-    <PackageVersion Include="Escendit.Tools.CodeAnalysis.SecurityCodeScanAnalyzers" Version="0.5.1-rc.3"/>
-    <PackageVersion Include="Escendit.Tools.CodeAnalysis.NetAnalyzers" Version="0.5.1-rc.4"/>
-    <PackageVersion Include="Escendit.Tools.CodeAnalysis.StyleCopAnalyzers" Version="0.5.1-rc.5"/>
-    <PackageVersion Include="Escendit.Tools.CodeAnalysis.xUnitAnalyzers" Version="0.1.0-rc.21"/>
-    <PackageVersion Include="Escendit.Tools.CodeAnalysis.NSubstituteAnalyzers" Version="0.1.0-rc.18"/>
+    <PackageVersion Include="Escendit.Tools.Branding" Version="1.2.0"/>
+    <PackageVersion Include="Escendit.Tools.CodeAnalysis.NetAnalyzers" Version="0.6.0"/>
+    <PackageVersion Include="Escendit.Tools.CodeAnalysis.StyleCopAnalyzers" Version="0.6.0"/>
+    <PackageVersion Include="Escendit.Tools.CodeAnalysis.xUnitAnalyzers" Version="0.1.0"/>
     <PackageVersion Include="FluentMigrator" Version="7.1.0"/>
     <PackageVersion Include="FluentMigrator.Extensions.Postgres" Version="7.1.0"/>
     <PackageVersion Include="FluentMigrator.Runner" Version="7.1.0"/>
@@ -31,6 +26,7 @@
     <PackageVersion Include="IdentityModel" Version="7.0.0"/>
     <PackageVersion Include="Immediate.Handlers" Version="2.2.0"/>
     <PackageVersion Include="JunitXml.TestLogger" Version="6.1.0"/>
+    <PackageVersion Include="Meziantou.Analyzer" Version="2.0.212"/>
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8"/>
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.8"/>
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8"/>
@@ -81,6 +77,7 @@
     <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0"/>
     <PackageVersion Include="OpenTelemetry.Instrumentation.Process" Version="1.12.0-beta.1"/>
     <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0"/>
+    <PackageVersion Include="Roslynator.Analyzers" Version="4.14.0"/>
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7"/>
     <PackageVersion Include="SharpZipLib" Version="1.4.2"/>
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.15.0.120848"/>
