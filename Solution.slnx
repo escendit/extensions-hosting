@@ -1,6 +1,9 @@
 <Solution>
-  <Folder Name="/docs/"/>
-  <Folder Name="/eng/"/>
-  <Folder Name="/src/"/>
-  <Folder Name="/test/"/>
+  <Folder Name="/docs/" />
+  <Folder Name="/eng/" />
+  <Folder Name="/src/">
+    <Project Path="src\Abstractions\Escendit.Extensions.Hosting.Abstractions.csproj" Type="Classic C#" />
+    <Project Path="src\Hosting\Escendit.Extensions.Hosting.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/test/" />
 </Solution>

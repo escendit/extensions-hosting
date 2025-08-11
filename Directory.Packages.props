@@ -65,7 +65,6 @@
     <PackageVersion Include="Microsoft.Orleans.Server" Version="9.2.1"/>
     <PackageVersion Include="Microsoft.Orleans.Streaming" Version="9.2.1"/>
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="3.1.0"/>
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0"/>
     <PackageVersion Include="Npgsql" Version="9.0.3"/>
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4"/>
     <PackageVersion Include="Npgsql.OpenTelemetry" Version="9.0.3"/>

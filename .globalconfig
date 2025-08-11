@@ -3,6 +3,9 @@
 is_global = true
 global_level = 0
 
+# StyleCop
+dotnet_diagnostic.SA1135.severity = none
+
 # Public API
 dotnet_diagnostic.RS0016.severity = error
 dotnet_diagnostic.RS0017.severity = error

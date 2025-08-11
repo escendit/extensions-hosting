@@ -61,7 +61,7 @@
   </ItemGroup>
   <!-- Public API Defaults -->
   <ItemGroup>
-    <AdditionalFiles Update="PublicAPI.Shipped.txt" Visible="false"/>
-    <AdditionalFiles Update="PublicAPI.Unshipped.txt" Visible="false"/>
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" Visible="false"/>
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" Visible="false"/>
   </ItemGroup>
 </Project>
