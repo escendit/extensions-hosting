@@ -28,9 +28,12 @@ public static partial class HostApplicationBuilderExtensions
     {
         ArgumentNullException.ThrowIfNull(builder);
 
-        builder
-            .Configuration
-            .AddUserSecrets<TType>();
+        if (builder.Environment.IsDevelopment())
+        {
+            builder
+                .Configuration
+                .AddUserSecrets<TType>();
+        }
 
         return builder;
     }
