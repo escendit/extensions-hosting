@@ -1,0 +1,5 @@
+const Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server.Name = "Escendit.Runtime.Server" -> string!
+Escendit.Extensions.Hosting.Abstractions.Constants
+Escendit.Extensions.Hosting.Abstractions.Constants.Runtime
+Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server
+static readonly Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server.Source -> System.Diagnostics.ActivitySource!
