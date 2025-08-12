@@ -143,6 +143,8 @@ public static partial class HostApplicationBuilderExtensions
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(name);
+        ArgumentNullException.ThrowIfNull(connectionStringName);
+        ArgumentNullException.ThrowIfNull(connectionStringInvariant);
 
         builder
             .UseOrleans(
