@@ -320,6 +320,44 @@
           "System.Memory.Data": "8.0.1"
         }
       },
+      "Microsoft.Orleans.Streaming.NATS": {
+        "type": "Direct",
+        "requested": "[9.2.0-nightly.20250801.1.alpha.1, )",
+        "resolved": "9.2.0-nightly.20250801.1.alpha.1",
+        "contentHash": "TkrRWJME21RghGToHJ/Y3FSsPwhtqedol59CAsXuw/NuquBFRp0fj8Cf22s7XpG8bB9hF8s9JKvQuMZdEf3E9w==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.11",
+          "Microsoft.CodeAnalysis.Analyzers": "3.11.0",
+          "Microsoft.CodeAnalysis.Common": "4.5.0",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "4.5.0",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
+          "Microsoft.Extensions.Configuration.Json": "8.0.1",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.DependencyModel": "8.0.2",
+          "Microsoft.Extensions.Hosting": "8.0.1",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "Microsoft.Extensions.Logging.Console": "8.0.1",
+          "Microsoft.Extensions.Logging.Debug": "8.0.1",
+          "Microsoft.Extensions.ObjectPool": "8.0.11",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
+          "Microsoft.Orleans.Analyzers": "9.2.0-nightly.20250801.1",
+          "Microsoft.Orleans.CodeGenerator": "9.2.0-nightly.20250801.1",
+          "Microsoft.Orleans.Streaming": "9.2.0-nightly.20250801.1",
+          "NATS.Net": "2.6.4",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.IO.Hashing": "8.0.0",
+          "System.IO.Pipelines": "8.0.0",
+          "System.Memory.Data": "8.0.1",
+          "System.Text.Json": "8.0.5"
+        }
+      },
       "Roslynator.Analyzers": {
         "type": "Direct",
         "requested": "[4.14.0, )",
@@ -810,6 +848,90 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
         }
       },
+      "NATS.Client.Core": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "685pR7wVi2xOr7hiOXWNENkb11YfF+X0Fd/bnX29Tc8aVJuE0FRdy8zGzxMAx2ka0xChBQaHgHWc6sCQrszqyA==",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
+          "Microsoft.Extensions.Primitives": "6.0.0",
+          "System.IO.Pipelines": "8.0.0",
+          "System.Text.Json": "8.0.5"
+        }
+      },
+      "NATS.Client.Hosting": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "JEmzFakzjqo5J9l0gZ7NdWVvhgOhIhT2Ekvp3/cfTLJVEAODTMlpYvU8lB71rQB9jCVR08hPwzTXSDuAudxtng==",
+        "dependencies": {
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "NATS.Client.Core": "2.6.4"
+        }
+      },
+      "NATS.Client.JetStream": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "Oc4IfcWmKaSNiua9DdlhytDwpBvs3nOGN8x4ZfepGPiXRWdaIxTrNe9cFxppwwLATWvlUeu9Z3s+Bjkhotvgiw==",
+        "dependencies": {
+          "NATS.Client.Core": "2.6.4"
+        }
+      },
+      "NATS.Client.KeyValueStore": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "Bv4ON3JfDanwgq509wbF8aJpwcIRAwJhpCbXg4d5tf0wgUD+dlbU3995sdyYZ6tZa8YQCXHBC/CGkCBeEBnqtw==",
+        "dependencies": {
+          "NATS.Client.JetStream": "2.6.4"
+        }
+      },
+      "NATS.Client.ObjectStore": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "QX0G8Q/tY0ezlO0NufGtdj7wqwF59Ikl/zEGldd1667Ug3mppCyatWwfs3jTiXRyxzVR5sYW/EZT6my0K+W+fA==",
+        "dependencies": {
+          "NATS.Client.JetStream": "2.6.4"
+        }
+      },
+      "NATS.Client.Serializers.Json": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "swVe8/ailF1dSriGdHBTcKN6cRWlivl6OKUlGUTaw0keVyefsBWdOEUfHv65dF0mB0Nncjx9q2dsJMjU7xk+5A==",
+        "dependencies": {
+          "NATS.Client.Core": "2.6.4"
+        }
+      },
+      "NATS.Client.Services": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "JUWfmXmuNc/nEnTMqqISWFPI8vOTget+LNPLXkCCh3xfQWprdTXQWb/NfmN8iCgSkd/Py0cI8boEaPUzux8HBA==",
+        "dependencies": {
+          "NATS.Client.Core": "2.6.4"
+        }
+      },
+      "NATS.Client.Simplified": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "go8Uigkvo6ZO1vjG1a7zVrN9RKUddDIVDNwWX+3+5m/yNNv7vgTCkWCZj1AagETn/rmiWrtQy8QqbV+kKrEFkw==",
+        "dependencies": {
+          "NATS.Client.Core": "2.6.4",
+          "NATS.Client.Serializers.Json": "2.6.4"
+        }
+      },
+      "NATS.Net": {
+        "type": "Transitive",
+        "resolved": "2.6.4",
+        "contentHash": "0LnIcW/3lzRy02sKTZJUFexApqtaOeRSleTyyMcyd5ztrZ4Fp+NQgUFSG3SKSTNcef460CjM+omArmXH34HJwQ==",
+        "dependencies": {
+          "NATS.Client.Core": "2.6.4",
+          "NATS.Client.Hosting": "2.6.4",
+          "NATS.Client.JetStream": "2.6.4",
+          "NATS.Client.KeyValueStore": "2.6.4",
+          "NATS.Client.ObjectStore": "2.6.4",
+          "NATS.Client.Serializers.Json": "2.6.4",
+          "NATS.Client.Services": "2.6.4",
+          "NATS.Client.Simplified": "2.6.4"
+        }
+      },
       "Newtonsoft.Json": {
         "type": "Transitive",
         "resolved": "13.0.3",
@@ -941,6 +1063,11 @@
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
+      },
+      "System.Text.Json": {
+        "type": "Transitive",
+        "resolved": "8.0.5",
+        "contentHash": "0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg=="
       },
       "System.Threading.Channels": {
         "type": "Transitive",
@@ -1240,6 +1367,42 @@
           "Microsoft.Orleans.Analyzers": "9.2.1",
           "Microsoft.Orleans.CodeGenerator": "9.2.1",
           "Microsoft.Orleans.Core": "9.2.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.IO.Hashing": "8.0.0",
+          "System.IO.Pipelines": "8.0.0",
+          "System.Memory.Data": "8.0.1"
+        }
+      },
+      "Microsoft.Orleans.Streaming": {
+        "type": "CentralTransitive",
+        "requested": "[9.2.1, )",
+        "resolved": "9.2.0-nightly.20250801.1",
+        "contentHash": "i87t95ApI9vuARlQc8+RP10mnpDsHSpwXiysSw+//ux+0qf3++H7sHTi6cc0j4eXZwgXvEHJoXaJ8HZwTIXGiA==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.11",
+          "Microsoft.CodeAnalysis.Analyzers": "3.11.0",
+          "Microsoft.CodeAnalysis.Common": "4.5.0",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "4.5.0",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
+          "Microsoft.Extensions.Configuration.Json": "8.0.1",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.DependencyModel": "8.0.2",
+          "Microsoft.Extensions.Hosting": "8.0.1",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "Microsoft.Extensions.Logging.Console": "8.0.1",
+          "Microsoft.Extensions.Logging.Debug": "8.0.1",
+          "Microsoft.Extensions.ObjectPool": "8.0.11",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
+          "Microsoft.Orleans.Analyzers": "9.2.0-nightly.20250801.1",
+          "Microsoft.Orleans.CodeGenerator": "9.2.0-nightly.20250801.1",
+          "Microsoft.Orleans.Runtime": "9.2.0-nightly.20250801.1",
           "Newtonsoft.Json": "13.0.3",
           "System.Collections.Immutable": "8.0.0",
           "System.IO.Hashing": "8.0.0",
