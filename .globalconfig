@@ -3,6 +3,9 @@
 is_global = true
 global_level = 0
 
+# Sonar
+dotnet_diagnostic.S3925.severity = none
+
 # StyleCop
 dotnet_diagnostic.SA1135.severity = none
 

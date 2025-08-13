@@ -5,7 +5,7 @@ namespace Microsoft.Extensions.Hosting;
 
 using System.Text.Json;
 using Configuration;
-using Exceptions;
+using Escendit.Extensions.Hosting.Exceptions;
 using NATS.Client.Core;
 using Orleans.Streaming.NATS.Hosting;
 
@@ -51,22 +51,30 @@ public static partial class HostApplicationBuilderExtensions
                         .Configuration
                         .GetConnectionString(connectionStringName);
 
-                    if (string.IsNullOrEmpty(connectionString))
+                    try
                     {
-                        throw new ConfigurationMissingException("No connection string configured.");
-                    }
-
-                    var uri = new Uri(connectionString);
-                    siloBuilder
-                        .AddNatsStreams(name, options =>
+                        if (string.IsNullOrEmpty(connectionString))
                         {
-                            options.StreamName = name;
-                            options.JsonSerializerOptions = new JsonSerializerOptions(JsonSerializerOptions.Default);
-                            options.NatsClientOptions = NatsOpts.Default with
+                            throw new ConfigurationMissingException($"The connection string with name '{connectionStringName}' is not configured.");
+                        }
+
+                        var uri = new Uri(connectionString);
+                        siloBuilder
+                            .AddNatsStreams(name, options =>
                             {
-                                Url = uri.OriginalString,
-                            };
-                        });
+                                options.StreamName = name;
+                                options.JsonSerializerOptions =
+                                    new JsonSerializerOptions(JsonSerializerOptions.Default);
+                                options.NatsClientOptions = NatsOpts.Default with
+                                {
+                                    Url = uri.OriginalString,
+                                };
+                            });
+                    }
+                    catch (UriFormatException)
+                    {
+                        throw new ConfigurationMissingException($"The connection string with name '{connectionStringName}' is in invalid format.");
+                    }
                 });
     }
 }

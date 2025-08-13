@@ -1,14 +1,15 @@
 ﻿// Licensed to the Escendit GmbH under one or more agreements.
 // The Escendit GmbH licenses this file to you under the Apache License 2.0.
 
-namespace Microsoft.Extensions.Hosting.Exceptions;
+namespace Escendit.Extensions.Hosting.Exceptions;
 
 using System;
 
 /// <summary>
 /// Configuration Missing Exception.
 /// </summary>
-public class ConfigurationMissingException : Exception
+[Serializable]
+public sealed class ConfigurationMissingException : Exception
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ConfigurationMissingException"/> class.

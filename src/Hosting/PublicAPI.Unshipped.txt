@@ -1,7 +1,7 @@
-Microsoft.Extensions.Hosting.Exceptions.ConfigurationMissingException
-Microsoft.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException() -> void
-Microsoft.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException(string! message) -> void
-Microsoft.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException(string! message, System.Exception! innerException) -> void
+Escendit.Extensions.Hosting.Exceptions.ConfigurationMissingException
+Escendit.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException() -> void
+Escendit.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException(string! message) -> void
+Escendit.Extensions.Hosting.Exceptions.ConfigurationMissingException.ConfigurationMissingException(string! message, System.Exception! innerException) -> void
 Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions
 static Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions.AddAdoNetClustering(this Microsoft.Extensions.Hosting.HostApplicationBuilder builder, string connectionStringName = "cluster", string connectionStringInvariant = "Npgsql") -> Microsoft.Extensions.Hosting.HostApplicationBuilder
 static Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions.AddAdoNetPersistence(this Microsoft.Extensions.Hosting.HostApplicationBuilder builder, string name, string connectionStringName = "cluster", string connectionStringInvariant = "Npgsql") -> Microsoft.Extensions.Hosting.HostApplicationBuilder
