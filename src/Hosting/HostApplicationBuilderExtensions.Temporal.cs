@@ -60,6 +60,11 @@ public static partial class HostApplicationBuilderExtensions
             .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal Client '{serviceName}'.");
         var temporalHost = temporalOptions.Grpc.First();
 
+        builder
+            .Services
+            .ConfigureOptions<TemporalOptionsValidator>()
+            .AddOptionsWithValidateOnStart<TemporalOptionsValidator>();
+
         return builder
             .AddTemporalClient(options =>
             {
@@ -68,7 +73,6 @@ public static partial class HostApplicationBuilderExtensions
                 options.Interceptors = [new TracingInterceptor()];
             })
             .Services
-            .ConfigureOptions<TemporalOptionsValidator>()
             .AddHostedTemporalWorker(temporalOptions.Queue, new WorkerDeploymentOptions
             {
                 UseWorkerVersioning = buildId is not null,
@@ -122,6 +126,10 @@ public static partial class HostApplicationBuilderExtensions
         builder
             .Services
             .ConfigureOptions<TemporalOptionsValidator>()
+            .AddOptionsWithValidateOnStart<TemporalOptionsValidator>();
+
+        builder
+            .Services
             .AddTemporalClient($"{temporalHost.Host}:{temporalHost.Port}")
             .Configure(configureOptions);
         return builder;
