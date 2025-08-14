@@ -2,4 +2,13 @@ const Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server.Name = "
 Escendit.Extensions.Hosting.Abstractions.Constants
 Escendit.Extensions.Hosting.Abstractions.Constants.Runtime
 Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.BuildId.get -> string?
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.BuildId.set -> void
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Grpc.get -> System.Collections.Generic.IEnumerable<System.Uri!>!
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Grpc.set -> void
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Namespace.get -> string!
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Namespace.set -> void
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Queue.get -> string!
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Queue.set -> void
 static readonly Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server.Source -> System.Diagnostics.ActivitySource!
