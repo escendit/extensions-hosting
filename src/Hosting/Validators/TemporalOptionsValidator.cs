@@ -1,6 +1,8 @@
 ﻿// Licensed to the Escendit GmbH under one or more agreements.
 // The Escendit GmbH licenses this file to you under the Apache License 2.0.
 
+#pragma warning disable CA1812
+
 namespace Escendit.Extensions.Hosting.Validators;
 
 using System.Linq;
@@ -15,7 +17,7 @@ internal class TemporalOptionsValidator : IValidateOptions<TemporalOptions>
     /// <inheritdoc />
     public ValidateOptionsResult Validate(string? name, TemporalOptions options)
     {
-        if (options.Grpc.Any())
+        if (!options.Grpc.Any())
         {
             return ValidateOptionsResult.Fail($"No endpoint (gRPC) provided for connection '{name}'");
         }
