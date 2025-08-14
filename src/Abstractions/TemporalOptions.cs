@@ -3,6 +3,8 @@
 
 namespace Escendit.Extensions.Hosting.Abstractions;
 
+using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
@@ -15,7 +17,7 @@ public record TemporalOptions
     /// Gets or sets the grpc connection strings.
     /// </summary>
     /// <value>The grpc connections.</value>
-    public IEnumerable<Uri> Grpc { get; set; } = null!;
+    public IEnumerable<Uri> Grpc { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the queue name.

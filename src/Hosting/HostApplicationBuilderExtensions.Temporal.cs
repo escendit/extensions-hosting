@@ -9,8 +9,10 @@ using Escendit.Extensions.Hosting.Abstractions;
 using Escendit.Extensions.Hosting.Exceptions;
 using Escendit.Extensions.Hosting.Validators;
 using Temporalio.Client;
+using Temporalio.Common;
 using Temporalio.Extensions.Hosting;
 using Temporalio.Extensions.OpenTelemetry;
+using Temporalio.Worker;
 
 /// <summary>
 /// Provides extension methods for configuring and customizing the <see cref="HostApplicationBuilder"/>.
@@ -55,7 +57,7 @@ public static partial class HostApplicationBuilderExtensions
         var temporalOptions = builder
             .Configuration
             .GetRequiredSection($"Services:{serviceName}")
-            .Get<TemporalOptions>();
+            .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal Client '{serviceName}'.");
         var temporalHost = temporalOptions.Grpc.First();
 
         return builder
@@ -66,7 +68,15 @@ public static partial class HostApplicationBuilderExtensions
                 options.Interceptors = [new TracingInterceptor()];
             })
             .Services
-            .AddHostedTemporalWorker(temporalOptions.Queue, buildId);
+            .ConfigureOptions<TemporalOptionsValidator>()
+            .AddHostedTemporalWorker(temporalOptions.Queue, new WorkerDeploymentOptions
+            {
+                UseWorkerVersioning = buildId is not null,
+                DefaultVersioningBehavior = VersioningBehavior.Unspecified,
+                Version = buildId is null
+                    ? null
+                    : new WorkerDeploymentVersion(serviceName, buildId),
+            });
     }
 
     /// <summary>
@@ -105,7 +115,7 @@ public static partial class HostApplicationBuilderExtensions
         var temporalOptions = builder
             .Configuration
             .GetRequiredSection($"Services:{serviceName}")
-            .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal service '{serviceName}'.");
+            .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal Client '{serviceName}'.");
 
         var temporalHost = temporalOptions.Grpc.First();
 

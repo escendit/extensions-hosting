@@ -3,6 +3,7 @@
 
 namespace Escendit.Extensions.Hosting.Validators;
 
+using System.Linq;
 using Abstractions;
 using Microsoft.Extensions.Options;
 
@@ -14,17 +15,17 @@ internal class TemporalOptionsValidator : IValidateOptions<TemporalOptions>
     /// <inheritdoc />
     public ValidateOptionsResult Validate(string? name, TemporalOptions options)
     {
-        if (options.Grpc is null || !options.Grpc.Any())
+        if (options.Grpc.Any())
         {
-            return ValidateOptionsResult.Fail($"No hostname provided for connection '{name}'");
+            return ValidateOptionsResult.Fail($"No endpoint (gRPC) provided for connection '{name}'");
         }
 
-        if (options.Namespace is null)
+        if (string.IsNullOrWhiteSpace(options.Namespace))
         {
             return ValidateOptionsResult.Fail($"No namespace provided for connection '{name}'");
         }
 
-        return options.Queue is null
+        return string.IsNullOrWhiteSpace(options.Queue)
             ? ValidateOptionsResult.Fail($"No queue provided for connection '{name}'")
             : ValidateOptionsResult.Success;
     }
