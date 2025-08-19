@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <PackageReference Include="Escendit.Extensions.Workflows" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience"/>
     <PackageReference Include="Microsoft.Extensions.ServiceDiscovery"/>
     <PackageReference Include="Microsoft.Orleans.Clustering.AdoNet"/>
@@ -11,8 +12,17 @@
     <PackageReference Include="Microsoft.Orleans.Server"/>
     <PackageReference Include="Microsoft.Orleans.Streaming"/>
     <PackageReference Include="Microsoft.Orleans.Streaming.NATS"/>
+    <PackageReference Include="Temporalio.Extensions.DiagnosticSource" />
+    <PackageReference Include="Temporalio.Extensions.Hosting" />
+    <PackageReference Include="Temporalio.Extensions.OpenTelemetry" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstractions\Escendit.Extensions.Hosting.Abstractions.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath/>
+    </None>
   </ItemGroup>
 </Project>

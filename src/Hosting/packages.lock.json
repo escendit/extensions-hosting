@@ -2,6 +2,16 @@
   "version": 2,
   "dependencies": {
     "net9.0": {
+      "Escendit.Extensions.Workflows": {
+        "type": "Direct",
+        "requested": "[0.1.0-rc.1, )",
+        "resolved": "0.1.0-rc.1",
+        "contentHash": "Zw58p0tU2shYJlgvokhdQytXbDgYvjWkSwnpOY/i10fvC9IpRsqGClA3BqK7Uhm3U6DbfmaywTsSV320Wk46XA==",
+        "dependencies": {
+          "Temporalio.Extensions.Hosting": "1.7.0",
+          "Temporalio.Extensions.OpenTelemetry": "1.7.0"
+        }
+      },
       "Escendit.Tools.Branding": {
         "type": "Direct",
         "requested": "[1.2.0, )",
@@ -406,10 +416,46 @@
         "resolved": "10.15.0.120848",
         "contentHash": "1hM3HVRl5jdC/ZBDu+G7CCYLXRGe/QaP01Zy+c9ETPhY7lWD8g8HiefY6sGaH0T3CJ4wAy0/waGgQTh0TYy0oQ=="
       },
+      "Temporalio.Extensions.DiagnosticSource": {
+        "type": "Direct",
+        "requested": "[1.7.0, )",
+        "resolved": "1.7.0",
+        "contentHash": "tCcI7ewsNwJYCkougIQ1+AH4zrdzfFMXGNEYDq4TT5nSC9S89e+I0bVfaqV0jEv+xs/yJ2wpMC/hjQhdyFle6A==",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "7.0.0",
+          "Temporalio": "1.7.0"
+        }
+      },
+      "Temporalio.Extensions.Hosting": {
+        "type": "Direct",
+        "requested": "[1.7.0, )",
+        "resolved": "1.7.0",
+        "contentHash": "eT1Q1ivxOT5D1mQ+tYRLtVEP41ACHxU+UMleLBPzBVNT0zA9hX1z11/YdlAXrbK1xuzWHSRJU6VKx6btBXxtFQ==",
+        "dependencies": {
+          "Microsoft.Extensions.Hosting": "8.0.1",
+          "Temporalio": "1.7.0"
+        }
+      },
+      "Temporalio.Extensions.OpenTelemetry": {
+        "type": "Direct",
+        "requested": "[1.7.0, )",
+        "resolved": "1.7.0",
+        "contentHash": "cU0e6yz7GmgdQfN0/TuZQIDf8R+m7Jv3Ngmgxc7qrToWC73iPPo4to2Q46rfT2UmOpnq0aLAE2ryNlXNoeN6ug==",
+        "dependencies": {
+          "OpenTelemetry.Api": "1.4.0",
+          "System.Diagnostics.DiagnosticSource": "7.0.0",
+          "Temporalio": "1.7.0"
+        }
+      },
       "Fractions": {
         "type": "Transitive",
         "resolved": "7.3.0",
         "contentHash": "2bETFWLBc8b7Ut2SVi+bxhGVwiSpknHYGBh2PADyGWONLkTxT7bKyDRhF8ao+XUv90tq8Fl7GTPxSI5bacIRJw=="
+      },
+      "Google.Protobuf": {
+        "type": "Transitive",
+        "resolved": "3.26.1",
+        "contentHash": "CHZX8zXqhF/fdUtd+AYzew8T2HFkAoe5c7lbGxZY/qryAlQXckDvM5BfOJjXlMS7kyICqQTMszj4w1bX5uBJ/w=="
       },
       "Humanizer.Core": {
         "type": "Transitive",
@@ -973,6 +1019,14 @@
         "resolved": "13.0.3",
         "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
       },
+      "OpenTelemetry.Api": {
+        "type": "Transitive",
+        "resolved": "1.4.0",
+        "contentHash": "754QKfiEZ3TNR3lOWS+u15qJYOVMWXhuUy8zjCXtgbaJihCFga3Wm3UZ9ggC5CJiUEjyeR6vw66NBZUxMOPTNQ==",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "7.0.0"
+        }
+      },
       "Polly.Core": {
         "type": "Transitive",
         "resolved": "8.4.2",
@@ -1049,6 +1103,11 @@
           "System.Composition.Hosting": "6.0.0",
           "System.Composition.Runtime": "6.0.0"
         }
+      },
+      "System.Diagnostics.DiagnosticSource": {
+        "type": "Transitive",
+        "resolved": "7.0.0",
+        "contentHash": "9W0ewWDuAyDqS2PigdTxk6jDKonfgscY/hP8hm7VpxYhNHZHKvZTdRckberlFk3VnCmr3xBUyMBut12Q+T2aOw=="
       },
       "System.Diagnostics.EventLog": {
         "type": "Transitive",
@@ -1415,6 +1474,16 @@
         "requested": "[1.2.0.556, )",
         "resolved": "1.2.0.556",
         "contentHash": "zvn9Mqs/ox/83cpYPignI8hJEM2A93s2HkHs8HYMOAQW0PkampyoErAiIyKxgTLqbbad29HX/shv/6LGSjPJNQ=="
+      },
+      "Temporalio": {
+        "type": "CentralTransitive",
+        "requested": "[1.7.0, )",
+        "resolved": "1.7.0",
+        "contentHash": "XIZa5utarbPj32ocGHX6VTUnYZ0O/2cdCc0/7G+a8Rg8o0CydW59QP6DbrI4LcftFIuhIfFtMb2N+W5brQ01Sw==",
+        "dependencies": {
+          "Google.Protobuf": "3.26.1",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0"
+        }
       }
     }
   }
