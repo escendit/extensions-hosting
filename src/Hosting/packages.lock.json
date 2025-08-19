@@ -2,6 +2,16 @@
   "version": 2,
   "dependencies": {
     "net9.0": {
+      "Escendit.Extensions.Workflows": {
+        "type": "Direct",
+        "requested": "[0.1.0-rc.1, )",
+        "resolved": "0.1.0-rc.1",
+        "contentHash": "Zw58p0tU2shYJlgvokhdQytXbDgYvjWkSwnpOY/i10fvC9IpRsqGClA3BqK7Uhm3U6DbfmaywTsSV320Wk46XA==",
+        "dependencies": {
+          "Temporalio.Extensions.Hosting": "1.7.0",
+          "Temporalio.Extensions.OpenTelemetry": "1.7.0"
+        }
+      },
       "Escendit.Tools.Branding": {
         "type": "Direct",
         "requested": "[1.2.0, )",

@@ -3,16 +3,11 @@
 
 namespace Microsoft.Extensions.Hosting;
 
+using System.Globalization;
 using Configuration;
 using DependencyInjection;
 using Escendit.Extensions.Hosting.Abstractions;
 using Escendit.Extensions.Hosting.Exceptions;
-using Escendit.Extensions.Hosting.Validators;
-using Temporalio.Client;
-using Temporalio.Common;
-using Temporalio.Extensions.Hosting;
-using Temporalio.Extensions.OpenTelemetry;
-using Temporalio.Worker;
 
 /// <summary>
 /// Provides extension methods for configuring and customizing the <see cref="HostApplicationBuilder"/>.
@@ -22,116 +17,88 @@ public static partial class HostApplicationBuilderExtensions
     private const string DefaultTemporalServiceName = "temporal";
 
     /// <summary>
-    /// Adds a Temporal worker service to the application builder.
+    /// Adds a Temporal hosted service to the application builder with specified configuration settings.
     /// </summary>
-    /// <param name="builder">The application <see cref="HostApplicationBuilder"/> to be configured.</param>
-    /// <param name="serviceName">The name of the Temporal service. Defaults to the internal default service name.</param>
-    /// <param name="buildId">The optional build ID for the Temporal worker.</param>
-    /// <returns>An instance of <see cref="ITemporalWorkerServiceOptionsBuilder"/> for further configuration.</returns>
-    public static ITemporalWorkerServiceOptionsBuilder AddTemporalWorkerService(
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <param name="name">The name of the Temporal service to configure.</param>
+    /// <param name="configureOptions">An optional action to configure the <see cref="ITemporalBuilder"/> for the hosted service.</param>
+    /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
+    public static HostApplicationBuilder AddTemporalHostedService(
         this HostApplicationBuilder builder,
-        string serviceName = DefaultTemporalServiceName,
-        string? buildId = null)
-    {
-        return builder
-            .AddTemporalWorkerService(_ => { }, serviceName, buildId);
-    }
-
-    /// <summary>
-    /// Adds a Temporal worker service to the application builder with optional configuration settings.
-    /// </summary>
-    /// <param name="builder">The application <see cref="HostApplicationBuilder"/> to configure.</param>
-    /// <param name="configureOptions">An action to configure <see cref="TemporalOptions"/> for the Temporal worker.</param>
-    /// <param name="serviceName">The name of the Temporal service. Defaults to the internal default service name.</param>
-    /// <param name="buildId">The optional build ID for the Temporal worker instance.</param>
-    /// <returns>An instance of <see cref="ITemporalWorkerServiceOptionsBuilder"/> for further configuration.</returns>
-    public static ITemporalWorkerServiceOptionsBuilder AddTemporalWorkerService(
-        this HostApplicationBuilder builder,
-        Action<TemporalOptions> configureOptions,
-        string serviceName = DefaultTemporalServiceName,
-        string? buildId = null)
+        string name,
+        Action<ITemporalBuilder> configureOptions)
     {
         ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(name);
         ArgumentNullException.ThrowIfNull(configureOptions);
 
-        var temporalOptions = builder
-            .Configuration
-            .GetRequiredSection($"Services:{serviceName}")
-            .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal Client '{serviceName}'.");
-        var temporalHost = temporalOptions.Grpc.First();
+        var section = builder.Configuration.GetRequiredSection($"Services:Temporal:{name}").Get<TemporalOptions>()
+                      ?? throw new ConfigurationMissingException($"Missing configuration for Temporal service '{name}'.");
+        var temporalHost = section.Grpc.First();
 
-        builder
+        var internalBuilder = builder
             .Services
-            .ConfigureOptions<TemporalOptionsValidator>()
-            .AddOptionsWithValidateOnStart<TemporalOptionsValidator>();
+            .AddTemporalHostedService(
+                section.Queue,
+                string.Create(CultureInfo.InvariantCulture, $"{temporalHost.Host}:{temporalHost.Port}"),
+                section.Namespace,
+                section.BuildId);
 
-        return builder
-            .AddTemporalClient(options =>
-            {
-                options.TargetHost = $"{temporalHost.Host}:{temporalHost.Port}";
-                options.Namespace = temporalOptions.Namespace;
-                options.Interceptors = [new TracingInterceptor()];
-            })
-            .Services
-            .AddHostedTemporalWorker(temporalOptions.Queue, new WorkerDeploymentOptions
-            {
-                UseWorkerVersioning = buildId is not null,
-                DefaultVersioningBehavior = VersioningBehavior.Unspecified,
-                Version = buildId is null
-                    ? null
-                    : new WorkerDeploymentVersion(serviceName, buildId),
-            });
-    }
-
-    /// <summary>
-    /// Adds a Temporal client to the application builder.
-    /// </summary>
-    /// <param name="builder">The application <see cref="HostApplicationBuilder"/> to be configured.</param>
-    /// <param name="serviceName">The name of the Temporal service. Defaults to the internal default service name.</param>
-    /// <returns>The modified <see cref="HostApplicationBuilder"/> instance.</returns>
-    public static HostApplicationBuilder AddTemporalClient(
-        this HostApplicationBuilder builder,
-        string serviceName = DefaultTemporalServiceName)
-    {
-        ArgumentNullException.ThrowIfNull(builder);
-        ArgumentNullException.ThrowIfNull(serviceName);
-        builder
-            .AddTemporalClient(_ => { }, serviceName);
+        configureOptions.Invoke(internalBuilder);
         return builder;
     }
 
     /// <summary>
-    /// Adds a Temporal client to the application builder.
+    /// Adds a Temporal hosted service to the application builder using the default service name and optional configuration settings.
     /// </summary>
-    /// <param name="builder">The application <see cref="HostApplicationBuilder"/> to be configured.</param>
-    /// <param name="configureOptions">An action to configure the <see cref="TemporalClientConnectOptions"/>.</param>
-    /// <param name="serviceName">The name of the Temporal service. Defaults to the internal default service name.</param>
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <param name="configureOptions">An optional action to configure the <see cref="ITemporalBuilder"/> for the hosted service.</param>
     /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
-    public static HostApplicationBuilder AddTemporalClient(
+    public static HostApplicationBuilder AddTemporalHostedService(
         this HostApplicationBuilder builder,
-        Action<TemporalClientConnectOptions> configureOptions,
-        string serviceName = DefaultTemporalServiceName)
+        Action<ITemporalBuilder> configureOptions)
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(configureOptions);
-        ArgumentNullException.ThrowIfNull(serviceName);
+        return AddTemporalHostedService(builder, DefaultTemporalServiceName, configureOptions);
+    }
 
-        var temporalOptions = builder
-            .Configuration
-            .GetRequiredSection($"Services:{serviceName}")
-            .Get<TemporalOptions>() ?? throw new ConfigurationMissingException($"Missing configuration for Temporal Client '{serviceName}'.");
+    /// <summary>
+    /// Adds a Temporal hosted service to the application builder with specified configuration settings.
+    /// </summary>
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
+    public static HostApplicationBuilder AddTemporalHostedService(
+        this HostApplicationBuilder builder)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        return AddTemporalHostedService(builder, _ => { });
+    }
 
-        var temporalHost = temporalOptions.Grpc.First();
+    /// <summary>
+    /// Adds a keyed Temporal client to the application builder using the specified client name and namespace.
+    /// </summary>
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <param name="clientName">The name of the Temporal client to configure.</param>
+    /// <param name="clientNamespace">The namespace of the Temporal client.</param>
+    /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
+    /// <exception cref="ConfigurationMissingException">Thrown if the required configuration for the Temporal client is not found.</exception>
+    public static HostApplicationBuilder AddKeyedTemporalClient(
+        this HostApplicationBuilder builder,
+        string clientName,
+        string clientNamespace)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(clientName);
+        ArgumentNullException.ThrowIfNull(clientNamespace);
+
+        var section = builder.Configuration.GetRequiredSection("Services:Temporal").Get<TemporalOptions>()
+            ?? throw new ConfigurationMissingException($"Missing configuration for Temporal service '{clientName}'.");
+        var temporalHost = section.Grpc.First();
 
         builder
             .Services
-            .ConfigureOptions<TemporalOptionsValidator>()
-            .AddOptionsWithValidateOnStart<TemporalOptionsValidator>();
-
-        builder
-            .Services
-            .AddTemporalClient($"{temporalHost.Host}:{temporalHost.Port}")
-            .Configure(configureOptions);
+            .AddKeyedTemporalClient(clientName, temporalHost.Authority, clientNamespace);
         return builder;
     }
 }

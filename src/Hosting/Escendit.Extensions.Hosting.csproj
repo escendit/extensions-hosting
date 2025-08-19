@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <PackageReference Include="Escendit.Extensions.Workflows" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience"/>
     <PackageReference Include="Microsoft.Extensions.ServiceDiscovery"/>
     <PackageReference Include="Microsoft.Orleans.Clustering.AdoNet"/>
@@ -17,5 +18,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstractions\Escendit.Extensions.Hosting.Abstractions.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath/>
+    </None>
   </ItemGroup>
 </Project>

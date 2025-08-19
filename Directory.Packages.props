@@ -12,6 +12,7 @@
     <PackageVersion Include="CommunityToolkit.HighPerformance" Version="8.4.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="Dapper" Version="2.1.66" />
+    <PackageVersion Include="Escendit.Extensions.Workflows" Version="0.1.0-rc.1" />
     <PackageVersion Include="Escendit.Tools.Branding" Version="1.2.0" />
     <PackageVersion Include="Escendit.Tools.CodeAnalysis.NetAnalyzers" Version="0.6.0" />
     <PackageVersion Include="Escendit.Tools.CodeAnalysis.StyleCopAnalyzers" Version="0.6.0" />
