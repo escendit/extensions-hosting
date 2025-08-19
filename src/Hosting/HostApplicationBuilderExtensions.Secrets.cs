@@ -23,7 +23,7 @@ public static partial class HostApplicationBuilderExtensions
     /// <returns>
     /// The <see cref="HostApplicationBuilder"/> with user secrets added to its configuration.
     /// </returns>
-    public static HostApplicationBuilder UseUserSecrets<TType>(this HostApplicationBuilder builder)
+    public static HostApplicationBuilder AddUserSecrets<TType>(this HostApplicationBuilder builder)
         where TType : class
     {
         ArgumentNullException.ThrowIfNull(builder);
