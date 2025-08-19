@@ -32,8 +32,13 @@ public static partial class HostApplicationBuilderExtensions
         ArgumentNullException.ThrowIfNull(name);
         ArgumentNullException.ThrowIfNull(configureOptions);
 
-        var section = builder.Configuration.GetRequiredSection($"Services:Temporal:{name}").Get<TemporalOptions>()
-                      ?? throw new ConfigurationMissingException($"Missing configuration for Temporal service '{name}'.");
+        var section = builder.Configuration.GetRequiredSection($"Services:{name}").Get<TemporalOptions>();
+
+        if (!(section?.Grpc.Any() ?? false))
+        {
+            throw new ConfigurationMissingException($"Missing configuration for Temporal service '{name}'.");
+        }
+
         var temporalHost = section.Grpc.First();
 
         var internalBuilder = builder
@@ -92,8 +97,13 @@ public static partial class HostApplicationBuilderExtensions
         ArgumentNullException.ThrowIfNull(clientName);
         ArgumentNullException.ThrowIfNull(clientNamespace);
 
-        var section = builder.Configuration.GetRequiredSection("Services:Temporal").Get<TemporalOptions>()
-            ?? throw new ConfigurationMissingException($"Missing configuration for Temporal service '{clientName}'.");
+        var section = builder.Configuration.GetRequiredSection($"Services:{clientName}").Get<TemporalOptions>();
+
+        if (!(section?.Grpc.Any() ?? false))
+        {
+            throw new ConfigurationMissingException($"Missing configuration for Temporal client '{clientName}'.");
+        }
+
         var temporalHost = section.Grpc.First();
 
         builder
