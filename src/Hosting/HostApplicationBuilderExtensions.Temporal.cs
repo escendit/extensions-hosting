@@ -8,6 +8,8 @@ using Configuration;
 using DependencyInjection;
 using Escendit.Extensions.Hosting.Abstractions;
 using Escendit.Extensions.Hosting.Exceptions;
+using Temporalio.Extensions.Hosting;
+using Temporalio.Extensions.OpenTelemetry;
 
 /// <summary>
 /// Provides extension methods for configuring and customizing the <see cref="HostApplicationBuilder"/>.
@@ -110,5 +112,48 @@ public static partial class HostApplicationBuilderExtensions
             .Services
             .AddKeyedTemporalClient(clientName, temporalHost.Authority, clientNamespace);
         return builder;
+    }
+
+    /// <summary>
+    /// Adds a Temporal server runtime to the application builder with the specified configuration settings.
+    /// </summary>
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <param name="name">The name of the Temporal server runtime to configure.</param>
+    /// <param name="configureOptions">An action to configure the <see cref="ITemporalWorkerServiceOptionsBuilder"/> for the server runtime.</param>
+    /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
+    public static HostApplicationBuilder AddTemporalServerRuntime(
+        this HostApplicationBuilder builder,
+        string name,
+        Action<ITemporalWorkerServiceOptionsBuilder> configureOptions)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(name);
+        ArgumentNullException.ThrowIfNull(configureOptions);
+
+        return builder
+            .AddServiceDefaults(tracerProviderBuilder => tracerProviderBuilder
+                .AddSource(
+                    name,
+                    TracingInterceptor.ClientSource.Name,
+                    TracingInterceptor.WorkflowsSource.Name,
+                    TracingInterceptor.ActivitiesSource.Name))
+            .AddTemporalHostedService(name, server => server
+                .ConfigureWorkerOptions(configureOptions));
+    }
+
+    /// <summary>
+    /// Adds a Temporal server runtime to the application builder with the specified configuration settings.
+    /// </summary>
+    /// <param name="builder">The <see cref="HostApplicationBuilder"/> used to configure the application.</param>
+    /// <param name="configureOptions">An action to configure the <see cref="ITemporalWorkerServiceOptionsBuilder"/> for the server runtime.</param>
+    /// <returns>The <see cref="HostApplicationBuilder"/> instance for further configuration.</returns>
+    public static HostApplicationBuilder AddTemporalServerRuntime(
+        this HostApplicationBuilder builder,
+        Action<ITemporalWorkerServiceOptionsBuilder> configureOptions)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(configureOptions);
+
+        return builder.AddTemporalServerRuntime(DefaultTemporalServiceName, configureOptions);
     }
 }
