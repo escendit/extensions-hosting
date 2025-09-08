@@ -368,9 +368,9 @@
       },
       "Microsoft.Orleans.Streaming.NATS": {
         "type": "Direct",
-        "requested": "[9.2.0-nightly.20250801.1.alpha.1, )",
-        "resolved": "9.2.0-nightly.20250801.1.alpha.1",
-        "contentHash": "TkrRWJME21RghGToHJ/Y3FSsPwhtqedol59CAsXuw/NuquBFRp0fj8Cf22s7XpG8bB9hF8s9JKvQuMZdEf3E9w==",
+        "requested": "[9.2.0-nightly.20250830.1.alpha.1, )",
+        "resolved": "9.2.0-nightly.20250830.1.alpha.1",
+        "contentHash": "uogi1JO9+JRBs2z3FZ9gHWfcc8TfdQaFn1h3A4HgX0QsjaNJRjApAfw2nN3yQFVbjECM0Lk8F1tG/3tCsomOPQ==",
         "dependencies": {
           "Microsoft.AspNetCore.Connections.Abstractions": "8.0.11",
           "Microsoft.CodeAnalysis.Analyzers": "3.11.0",
@@ -392,9 +392,9 @@
           "Microsoft.Extensions.ObjectPool": "8.0.11",
           "Microsoft.Extensions.Options": "8.0.2",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
-          "Microsoft.Orleans.Analyzers": "9.2.0-nightly.20250801.1",
-          "Microsoft.Orleans.CodeGenerator": "9.2.0-nightly.20250801.1",
-          "Microsoft.Orleans.Streaming": "9.2.0-nightly.20250801.1",
+          "Microsoft.Orleans.Analyzers": "9.2.0-nightly.20250830.1",
+          "Microsoft.Orleans.CodeGenerator": "9.2.0-nightly.20250830.1",
+          "Microsoft.Orleans.Streaming": "9.2.0-nightly.20250830.1",
           "NATS.Net": "2.6.4",
           "Newtonsoft.Json": "13.0.3",
           "System.Collections.Immutable": "8.0.0",
@@ -503,33 +503,33 @@
       },
       "Temporalio.Extensions.DiagnosticSource": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "tCcI7ewsNwJYCkougIQ1+AH4zrdzfFMXGNEYDq4TT5nSC9S89e+I0bVfaqV0jEv+xs/yJ2wpMC/hjQhdyFle6A==",
+        "requested": "[1.8.0, )",
+        "resolved": "1.8.0",
+        "contentHash": "Hy1l70i/4IZct7kvqS2CkGVrARsndWX47qslEjGZWTl6gwfM7K6dIyOZW8p5MmpejvDgt9DiTYgUKdTcRpPyNw==",
         "dependencies": {
           "System.Diagnostics.DiagnosticSource": "7.0.0",
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.8.0"
         }
       },
       "Temporalio.Extensions.Hosting": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "eT1Q1ivxOT5D1mQ+tYRLtVEP41ACHxU+UMleLBPzBVNT0zA9hX1z11/YdlAXrbK1xuzWHSRJU6VKx6btBXxtFQ==",
+        "requested": "[1.8.0, )",
+        "resolved": "1.8.0",
+        "contentHash": "i47KpsI5iGJxaMlk7hEckwkqK5wyngOlr1qrb5CKISy4sG8SkvgQbv6giDcVLz0ie2heQiliCxXiO3Muymt8lQ==",
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.1",
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.8.0"
         }
       },
       "Temporalio.Extensions.OpenTelemetry": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "cU0e6yz7GmgdQfN0/TuZQIDf8R+m7Jv3Ngmgxc7qrToWC73iPPo4to2Q46rfT2UmOpnq0aLAE2ryNlXNoeN6ug==",
+        "requested": "[1.8.0, )",
+        "resolved": "1.8.0",
+        "contentHash": "/e2N86UmlEfdPvLCrJbkq+ZW9kMaRIAmi/zfP5wrPFOwzEMFgRCZkhia/dCRXEcOOm9LTiqS8cKapEbL59lxCg==",
         "dependencies": {
           "OpenTelemetry.Api": "1.4.0",
           "System.Diagnostics.DiagnosticSource": "7.0.0",
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.8.0"
         }
       },
       "Fractions": {
@@ -1592,8 +1592,8 @@
       "Temporalio": {
         "type": "CentralTransitive",
         "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "XIZa5utarbPj32ocGHX6VTUnYZ0O/2cdCc0/7G+a8Rg8o0CydW59QP6DbrI4LcftFIuhIfFtMb2N+W5brQ01Sw==",
+        "resolved": "1.8.0",
+        "contentHash": "0laqMI+1F4OoXyDiYBLORM/8KW2VaSi4Z2fMHV8RPrJcdf9GkPpoMKyzfKMTZEFhSFu0sK8Qx15cYhsjCTswXg==",
         "dependencies": {
           "Google.Protobuf": "3.26.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0"
