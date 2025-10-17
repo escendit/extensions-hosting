@@ -66,16 +66,16 @@
     <PackageVersion Include="Microsoft.Orleans.Sdk" Version="9.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Server" Version="9.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Streaming" Version="9.2.1" />
-    <PackageVersion Include="Microsoft.Orleans.Streaming.NATS" Version="9.2.0-nightly.20250801.1.alpha.1" />
+    <PackageVersion Include="Microsoft.Orleans.Streaming.NATS" Version="9.2.0-nightly.20251015.1.alpha.1" />
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="3.1.0" />
     <PackageVersion Include="Npgsql" Version="9.0.3" />
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
-    <PackageVersion Include="Npgsql.OpenTelemetry" Version="9.0.3" />
+    <PackageVersion Include="Npgsql.OpenTelemetry" Version="9.0.4" />
     <PackageVersion Include="NSubstitute.Analyzers.CSharp" Version="1.0.17" />
     <PackageVersion Include="OpenTelemetry" Version="1.12.0" />
-    <PackageVersion Include="OpenTelemetry.Exporter.Console" Version="1.12.0" />
-    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
-    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Exporter.Console" Version="1.13.1" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.13.1" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.13.1" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.12.0-beta.1" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
@@ -99,9 +99,9 @@
     <PackageVersion Include="System.ServiceModel.UnixDomainSocket" Version="8.1.2" />
     <PackageVersion Include="System.Web.Services.Description" Version="8.1.2" />
     <PackageVersion Include="Temporalio" Version="1.7.0" />
-    <PackageVersion Include="Temporalio.Extensions.Hosting" Version="1.7.0" />
-    <PackageVersion Include="Temporalio.Extensions.DiagnosticSource" Version="1.7.0" />
-    <PackageVersion Include="Temporalio.Extensions.OpenTelemetry" Version="1.7.0" />
+    <PackageVersion Include="Temporalio.Extensions.Hosting" Version="1.9.0" />
+    <PackageVersion Include="Temporalio.Extensions.DiagnosticSource" Version="1.9.0" />
+    <PackageVersion Include="Temporalio.Extensions.OpenTelemetry" Version="1.9.0" />
     <PackageVersion Include="xunit.v3" Version="3.0.0" />
     <PackageVersion Include="xunit.analyzers" Version="1.23.0" />
     <PackageVersion Include="xunit.categories" Version="3.0.1" />
