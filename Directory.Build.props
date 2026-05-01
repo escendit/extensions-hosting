@@ -59,9 +59,4 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <!-- Public API Defaults -->
-  <ItemGroup>
-    <AdditionalFiles Update="PublicAPI.Shipped.txt" Visible="false"/>
-    <AdditionalFiles Update="PublicAPI.Unshipped.txt" Visible="false"/>
-  </ItemGroup>
 </Project>

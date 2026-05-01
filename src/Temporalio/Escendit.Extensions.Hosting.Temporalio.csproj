@@ -8,6 +8,10 @@
     <PackageReference Include="OpenTelemetry.Api"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServiceDefaults\Escendit.Extensions.Hosting.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\ServiceDefaults\Escendit.Extensions.Hosting.ServiceDefaults.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt"/>
+    <AdditionalFiles Include="PublicAPI.Shipped.txt"/>
   </ItemGroup>
 </Project>
