@@ -3,6 +3,9 @@
 is_global = true
 global_level = 0
 
+# .NET
+dotnet_diagnostic.CA1034.severity = none
+
 # Sonar
 dotnet_diagnostic.S3925.severity = none
 
@@ -12,3 +15,5 @@ dotnet_diagnostic.SA1135.severity = none
 # Public API
 dotnet_diagnostic.RS0016.severity = error
 dotnet_diagnostic.RS0017.severity = error
+
+
