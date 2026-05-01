@@ -106,8 +106,7 @@ public static class ServiceExtensions
 
         /// <summary>
         /// Configures the provided <see cref="HostApplicationBuilder"/> with default settings tailored for backend services.
-        /// This includes logging, OpenTelemetry instrumentation, health checks, service discovery, HTTP client configurations,
-        /// and resilience mechanisms such as rate limiting, retry policies, and circuit breakers.
+        /// This includes logging, OpenTelemetry instrumentation, health checks, service discovery, HTTP client configurations.
         /// </summary>
         /// <param name="tracerProviderBuilder">
         /// Optional action to customize the <see cref="TracerProviderBuilder"/> for tracing configurations.
