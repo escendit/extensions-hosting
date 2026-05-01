@@ -11,4 +11,15 @@ Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Namespace.get -> string
 Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Namespace.set -> void
 Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Queue.get -> string!
 Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Queue.set -> void
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.TemporalOptions() -> void
+Escendit.Extensions.Hosting.Abstractions.TemporalOptions.TemporalOptions(Escendit.Extensions.Hosting.Abstractions.TemporalOptions! original) -> void
+override Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Equals(object? obj) -> bool
+override Escendit.Extensions.Hosting.Abstractions.TemporalOptions.GetHashCode() -> int
+override Escendit.Extensions.Hosting.Abstractions.TemporalOptions.ToString() -> string!
+static Escendit.Extensions.Hosting.Abstractions.TemporalOptions.operator !=(Escendit.Extensions.Hosting.Abstractions.TemporalOptions? left, Escendit.Extensions.Hosting.Abstractions.TemporalOptions? right) -> bool
+static Escendit.Extensions.Hosting.Abstractions.TemporalOptions.operator ==(Escendit.Extensions.Hosting.Abstractions.TemporalOptions? left, Escendit.Extensions.Hosting.Abstractions.TemporalOptions? right) -> bool
 static readonly Escendit.Extensions.Hosting.Abstractions.Constants.Runtime.Server.Source -> System.Diagnostics.ActivitySource!
+virtual Escendit.Extensions.Hosting.Abstractions.TemporalOptions.<Clone>$() -> Escendit.Extensions.Hosting.Abstractions.TemporalOptions!
+virtual Escendit.Extensions.Hosting.Abstractions.TemporalOptions.EqualityContract.get -> System.Type!
+virtual Escendit.Extensions.Hosting.Abstractions.TemporalOptions.Equals(Escendit.Extensions.Hosting.Abstractions.TemporalOptions? other) -> bool
+virtual Escendit.Extensions.Hosting.Abstractions.TemporalOptions.PrintMembers(System.Text.StringBuilder! builder) -> bool

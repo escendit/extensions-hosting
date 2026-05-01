@@ -1,7 +1,7 @@
 <Project>
   <!-- Solution Commons -->
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -61,7 +61,7 @@
   </ItemGroup>
   <!-- Public API Defaults -->
   <ItemGroup>
-    <AdditionalFiles Include="PublicAPI.Shipped.txt" Visible="false"/>
-    <AdditionalFiles Include="PublicAPI.Unshipped.txt" Visible="false"/>
+    <AdditionalFiles Update="PublicAPI.Shipped.txt" Visible="false"/>
+    <AdditionalFiles Update="PublicAPI.Unshipped.txt" Visible="false"/>
   </ItemGroup>
 </Project>

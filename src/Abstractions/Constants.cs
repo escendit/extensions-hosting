@@ -4,7 +4,7 @@
 namespace Escendit.Extensions.Hosting.Abstractions;
 
 #pragma warning disable CA1034
-
+#pragma warning disable CA1724
 using System.Diagnostics;
 
 /// <summary>

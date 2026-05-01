@@ -1,0 +1,4 @@
+﻿Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions
+Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions.extension(Microsoft.Extensions.Hosting.HostApplicationBuilder!)
+Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions.extension(Microsoft.Extensions.Hosting.HostApplicationBuilder!).AddUserSecrets<TType>() -> Microsoft.Extensions.Hosting.HostApplicationBuilder!
+static Microsoft.Extensions.Hosting.HostApplicationBuilderExtensions.AddUserSecrets<TType>(this Microsoft.Extensions.Hosting.HostApplicationBuilder! builder) -> Microsoft.Extensions.Hosting.HostApplicationBuilder!
