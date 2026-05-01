@@ -80,7 +80,7 @@ public static class HostApplicationBuilderExtensions
         /// </exception>
         /// <exception cref="InvalidOperationException">
         /// Thrown when required configuration values for Temporal, such as 'TEMPORAL_GRPC',
-        /// 'TEMPORAL_NAMESPACE', 'TEMPORAL_QUEUE', or 'TEMPORAL_BUILD_ID' are missing or invalid.
+        /// 'TEMPORAL_NAMESPACE', or 'TEMPORAL_QUEUE' are missing or invalid.
         /// </exception>
         public HostApplicationBuilder AddTemporalHostedService(Action<ITemporalioBuilder> configureOptions)
         {
