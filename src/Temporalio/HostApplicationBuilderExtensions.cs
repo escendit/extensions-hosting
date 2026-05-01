@@ -107,11 +107,6 @@ public static class HostApplicationBuilderExtensions
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_QUEUE'.");
             }
 
-            if (clientBuildId is null)
-            {
-                throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_BUILD_ID'.");
-            }
-
             var internalBuilder = builder
                 .Services
                 .AddTemporalHostedService(
