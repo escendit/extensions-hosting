@@ -33,12 +33,12 @@ public static class HostApplicationBuilderExtensions
             var clientHost = builder.Configuration.GetValue<string>("TEMPORAL_GRPC");
             var clientNamespace = builder.Configuration.GetValue<string>("TEMPORAL_NAMESPACE");
 
-            if (clientHost is null)
+            if (string.IsNullOrWhiteSpace(clientHost))
             {
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_GRPC'.");
             }
 
-            if (clientNamespace is null)
+            if (string.IsNullOrWhiteSpace(clientNamespace))
             {
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_NAMESPACE'.");
             }
@@ -60,7 +60,9 @@ public static class HostApplicationBuilderExtensions
         {
             ArgumentNullException.ThrowIfNull(builder);
             ArgumentNullException.ThrowIfNull(configureOptions);
-            builder.Services.AddTemporalClient(configureOptions);
+            builder
+                .Services
+                .AddTemporalClient(configureOptions);
             return builder;
         }
 
@@ -92,17 +94,17 @@ public static class HostApplicationBuilderExtensions
             var clientQueue = builder.Configuration.GetValue<string>("TEMPORAL_QUEUE");
             var clientBuildId = builder.Configuration.GetValue<string>("TEMPORAL_BUILD_ID");
 
-            if (clientHost is null)
+            if (string.IsNullOrWhiteSpace(clientHost))
             {
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_GRPC'.");
             }
 
-            if (clientNamespace is null)
+            if (string.IsNullOrWhiteSpace(clientNamespace))
             {
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_NAMESPACE'.");
             }
 
-            if (clientQueue is null)
+            if (string.IsNullOrWhiteSpace(clientQueue))
             {
                 throw new InvalidOperationException($"Missing required configuration value 'TEMPORAL_QUEUE'.");
             }
