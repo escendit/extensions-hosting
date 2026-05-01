@@ -40,7 +40,7 @@ public static class ServiceExtensions
         /// </param>
         /// <param name="httpClientBuilder">
         /// Optional action to configure the <see cref="IHttpClientBuilder"/> for HTTP client behaviors.
-        /// If not provided, default HTTP client settings will be applied.
+        /// If not provided, HTTP client settings are skipped.
         /// </param>
         /// <returns>The configured <see cref="HostApplicationBuilder"/> instance.</returns>
         /// <exception cref="ArgumentNullException">
