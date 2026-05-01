@@ -19,7 +19,7 @@ public static class StorageExtensions
         /// Configures ADO.NET-based persistence as the default grain storage provider for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for ADO.NET persistence. Defaults to "cluster".
+        /// The name of the connection string in the configuration to use for ADO.NET persistence. Defaults to "Storage:AdoNet".
         /// </param>
         /// <param name="connectionStringInvariant">
         /// The database provider invariant name to use. Defaults to "Npgsql".
@@ -40,7 +40,7 @@ public static class StorageExtensions
                         .AddAdoNetGrainStorageAsDefault(
                             configureOptions =>
                             {
-                                configureOptions.ConnectionString = siloBuilder.Configuration.GetConnectionString(connectionStringName);
+                                configureOptions.ConnectionString = builder.GetConnectionStringValue(connectionStringName);
                                 configureOptions.Invariant = connectionStringInvariant;
                             }));
         }
@@ -52,7 +52,7 @@ public static class StorageExtensions
         /// The name of the storage provider.
         /// </param>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for ADO.NET persistence. Defaults to "cluster".
+        /// The name of the connection string in the configuration to use for ADO.NET persistence. Defaults to "Storage:AdoNet".
         /// </param>
         /// <param name="connectionStringInvariant">
         /// The database provider invariant name to use. Defaults to "Npgsql".
@@ -77,9 +77,7 @@ public static class StorageExtensions
                             name,
                             configureOptions =>
                             {
-                                configureOptions.ConnectionString = builder
-                                    .Configuration
-                                    .GetConnectionString(connectionStringName);
+                                configureOptions.ConnectionString = builder.GetConnectionStringValue(connectionStringName);
                                 configureOptions.Invariant = connectionStringInvariant;
                             }));
 
@@ -88,5 +86,5 @@ public static class StorageExtensions
     }
 
     private const string StorageInvariantName = "Npgsql";
-    private const string StorageConnectionAdoNetStringName = "connection:storage:adonet";
+    private const string StorageConnectionAdoNetStringName = "Storage:AdoNet";
 }

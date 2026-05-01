@@ -22,7 +22,7 @@ public static class ClusteringExtensions
         /// Configures ADO.NET server clustering for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for ADO.NET clustering. Defaults to "connection:cluster:adonet".
+        /// The name of the connection string in the configuration to use for ADO.NET clustering. Defaults to "Clustering:AdoNet".
         /// </param>
         /// <param name="connectionStringInvariant">
         /// The invariant name of the database provider to use for ADO.NET clustering. Defaults to "Npgsql".
@@ -59,7 +59,7 @@ public static class ClusteringExtensions
         /// Configures ADO.NET client clustering for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for ADO.NET clustering. Defaults to "connection:cluster:adonet".
+        /// The name of the connection string in the configuration to use for ADO.NET clustering. Defaults to "Clustering:AdoNet".
         /// </param>
         /// <param name="connectionStringInvariant">
         /// The invariant name of the database provider to use for ADO.NET clustering. Defaults to "Npgsql".
@@ -92,7 +92,7 @@ public static class ClusteringExtensions
         /// Configures Redis server clustering for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for Redis clustering. Defaults to "connection:cluster:redis".
+        /// The name of the connection string in the configuration to use for Redis clustering. Defaults to "Clustering:Redis".
         /// </param>
         /// <returns>
         /// The modified <see cref="HostApplicationBuilder"/> instance.
@@ -117,7 +117,7 @@ public static class ClusteringExtensions
         /// Configures Redis clustering for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for Redis clustering. Defaults to "Connection:Clustering:Redis".
+        /// The name of the connection string in the configuration to use for Redis clustering. Defaults to "Clustering:Redis".
         /// </param>
         /// <returns>
         /// The modified <see cref="HostApplicationBuilder"/> instance.
@@ -142,6 +142,6 @@ public static class ClusteringExtensions
     }
 
     private const string ClusterInvariantName = "Npgsql";
-    private const string ClusterConnectionAdoNetStringName = "Connection:Clustering:AdoNet";
-    private const string ClusterConnectionRedisStringName = "Connection:Clustering:Redis";
+    private const string ClusterConnectionAdoNetStringName = "Clustering:AdoNet";
+    private const string ClusterConnectionRedisStringName = "Clustering:Redis";
 }

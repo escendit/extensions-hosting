@@ -18,7 +18,7 @@ public static class ReminderExtensions
         /// Configures ADO.NET reminders for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for ADO.NET reminders. Defaults to "cluster".
+        /// The name of the connection string in the configuration to use for ADO.NET reminders. Defaults to "Reminders:AdoNet".
         /// </param>
         /// <param name="connectionStringInvariant">
         /// The database provider invariant name to use. Defaults to "Npgsql".
@@ -39,9 +39,7 @@ public static class ReminderExtensions
                         .UseAdoNetReminderService(
                             configureOptions =>
                             {
-                                var connectionString = builder.Configuration.GetConnectionString(connectionStringName)
-                                                       ?? throw new InvalidOperationException($"Connection string with name {connectionStringName} is empty or invalid in configuration.");
-                                configureOptions.ConnectionString = connectionString;
+                                configureOptions.ConnectionString = builder.GetConnectionStringValue(connectionStringName);
                                 configureOptions.Invariant = connectionStringInvariant;
                             }));
             return builder;
@@ -51,7 +49,7 @@ public static class ReminderExtensions
         /// Configures Redis reminders for Orleans in the host application builder.
         /// </summary>
         /// <param name="connectionStringName">
-        /// The name of the connection string in the configuration to use for Redis reminders. Defaults to "connection:reminders:redis".
+        /// The name of the connection string in the configuration to use for Redis reminders. Defaults to "Reminders:Redis".
         /// </param>
         /// <returns>
         /// The modified <see cref="HostApplicationBuilder"/> instance.
@@ -72,8 +70,7 @@ public static class ReminderExtensions
                     siloBuilder => siloBuilder
                         .UseRedisReminderService(options =>
                         {
-                            var connectionString = builder.Configuration.GetConnectionString(connectionStringName)
-                                                   ?? throw new InvalidOperationException($"Connection string with name {connectionStringName} is empty or invalid in configuration.");
+                            var connectionString = builder.GetConnectionStringValue(connectionStringName);
                             options.ConfigurationOptions = ConfigurationOptions.Parse(connectionString);
                         }));
             return builder;
@@ -81,6 +78,6 @@ public static class ReminderExtensions
     }
 
     private const string ReminderInvariantName = "Npgsql";
-    private const string ReminderConnectionAdoNetStringName = "Connection:Reminders:AdoNet";
-    private const string ReminderConnectionRedisStringName = "Connection:Reminders:Redis";
+    private const string ReminderConnectionAdoNetStringName = "Reminders:AdoNet";
+    private const string ReminderConnectionRedisStringName = "Reminders:Redis";
 }

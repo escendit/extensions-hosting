@@ -23,7 +23,7 @@ public static class StreamingExtensions
         /// The name of the stream to configure. Defaults to "Platform".
         /// </param>
         /// <param name="connectionStringName">
-        /// The name of the connection string to use for NATS. Defaults to "nats".
+        /// The name of the connection string to use for NATS. Defaults to "Streaming:NATS".
         /// </param>
         /// <returns>
         /// The configured <see cref="HostApplicationBuilder"/> instance.
@@ -83,7 +83,7 @@ public static class StreamingExtensions
         /// The name of the client stream to configure. Defaults to "Platform".
         /// </param>
         /// <param name="connectionStringName">
-        /// The name of the connection string to use for NATS. Defaults to "nats".
+        /// The name of the connection string to use for NATS. Defaults to "Streaming:NATS".
         /// </param>
         /// <returns>
         /// The configured <see cref="HostApplicationBuilder"/> instance.
@@ -140,5 +140,5 @@ public static class StreamingExtensions
     }
 
     private const string DefaultStreamName = "Platform";
-    private const string StreamingConnectionNatsStringName = "nats";
+    private const string StreamingConnectionNatsStringName = "Streaming:NATS";
 }

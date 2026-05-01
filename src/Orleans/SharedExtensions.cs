@@ -21,8 +21,10 @@ internal static class SharedExtensions
             ArgumentNullException.ThrowIfNull(builder);
             ArgumentNullException.ThrowIfNull(connectionStringName);
 
-            var configurationSection = builder.Configuration.GetSection($"ConnectionStrings:{connectionStringName}")
-                                       ?? throw new InvalidOperationException($"Connection string with name {connectionStringName} was not found in configuration.");
+            var configurationSection = builder
+                .Configuration
+                .GetRequiredSection("ConnectionStrings")
+                .GetSection(connectionStringName);
 
             if (!configurationSection.Exists() || configurationSection.Value is null)
             {
