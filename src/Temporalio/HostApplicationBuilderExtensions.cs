@@ -29,6 +29,7 @@ public static class HostApplicationBuilderExtensions
         /// </exception>
         public HostApplicationBuilder AddTemporalClient()
         {
+            ArgumentNullException.ThrowIfNull(builder);
             var clientHost = builder.Configuration.GetValue<string>("TEMPORAL_GRPC");
             var clientNamespace = builder.Configuration.GetValue<string>("TEMPORAL_NAMESPACE");
 
