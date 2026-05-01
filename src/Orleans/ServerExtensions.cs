@@ -55,7 +55,17 @@ public static class ServerExtensions
         {
             ArgumentNullException.ThrowIfNull(builder);
             ArgumentNullException.ThrowIfNull(configureAction);
-            builder.UseOrleans(configureAction);
+            builder
+                .AddServerClusteringDefaults()
+                .AddEventSourcingDefaults()
+                .AddHostingDefaults()
+                .AddServerActivityPropagation()
+                .AddServiceDefaults(
+                    tracingProvider => tracingProvider
+                        .AddSource(OrleansApplicationSourceName),
+                    metersProviderBuilder: metricsProviderBuilder => metricsProviderBuilder
+                        .AddMeter(OrleansApplicationMeterName))
+                .UseOrleans(configureAction);
             return builder;
         }
 
