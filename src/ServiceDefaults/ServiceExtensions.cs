@@ -126,27 +126,12 @@ public static class ServiceExtensions
             Action<MeterProviderBuilder>? metersProviderBuilder = null)
         {
             ArgumentNullException.ThrowIfNull(builder);
-            const string optionsName = "Backend";
 
             return builder
                 .AddServiceDefaults(tracerProviderBuilder, metersProviderBuilder, httpClientBuilder =>
                 {
                     httpClientBuilder
-                        .AddServiceDiscovery()
-                        .AddResilienceHandler(optionsName, (piplineBuilder, context) =>
-                        {
-                            var name = $"{httpClientBuilder.Name}-{optionsName}";
-
-                            _ = builder.Services.AddOptionsWithValidateOnStart<HttpStandardResilienceOptions>(name);
-
-                            var monitor = context.ServiceProvider.GetRequiredService<IOptionsMonitor<HttpStandardResilienceOptions>>();
-                            var options = monitor.Get(name);
-
-                            _ = piplineBuilder
-                                .AddRateLimiter(options.RateLimiter)
-                                .AddRetry(options.Retry)
-                                .AddCircuitBreaker(options.CircuitBreaker);
-                        });
+                        .AddServiceDiscovery();
                 });
         }
 
