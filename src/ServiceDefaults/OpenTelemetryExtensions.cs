@@ -59,7 +59,7 @@ public static class OpenTelemetryExtensions
         /// If null, default tracing settings will be applied without customization.
         /// </param>
         /// <returns>The configured <see cref="OpenTelemetryBuilder"/> instance.</returns>
-        public OpenTelemetryBuilder WithDefaultTraces(
+        public OpenTelemetryBuilder WithDefaultTracing(
             IHostEnvironment environment,
             Action<TracerProviderBuilder>? providerBuilder = null)
         {

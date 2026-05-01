@@ -5,10 +5,13 @@ namespace Microsoft.Extensions.Hosting;
 
 using DependencyInjection;
 using Diagnostics.HealthChecks;
+using Http.Resilience;
 using Logging;
 using OpenTelemetry;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
+using Options;
+using Polly;
 using OpenTelemetryBuilder = OpenTelemetry.OpenTelemetryBuilder;
 
 /// <summary>
@@ -58,25 +61,93 @@ public static class ServiceExtensions
                         {
                             metersProviderBuilder?.Invoke(metrics);
                         })
-                        .WithTracing(tracing =>
+                        .WithDefaultTracing(builder.Environment, tracing =>
                         {
                             tracerProviderBuilder?.Invoke(tracing);
                         });
                 })
                 .AddDefaultHealthChecks()
                 .AddServiceDiscovery(httpClientBuilder)
-                .Services
-                .AddServiceDiscovery()
-                .ConfigureHttpClientDefaults(http =>
-                {
-                    // Turn on resilience by default
-                    http.AddStandardResilienceHandler();
-
-                    // Turn on service discovery by default
-                    http.AddServiceDiscovery();
-                });
+                .AddOpenTelemetryExporters();
 
             return builder;
+        }
+
+        /// <summary>
+        /// Configures the provided <see cref="HostApplicationBuilder"/> with default service settings optimized for low latency.
+        /// This includes OpenTelemetry instrumentation, health checks, HTTP client configurations with service discovery,
+        /// and the addition of a standard resilience handler for HTTP calls.
+        /// </summary>
+        /// <param name="tracerProviderBuilder">
+        /// Optional action to customize the <see cref="TracerProviderBuilder"/> for tracing configurations.
+        /// If not provided, default tracing settings will be applied.
+        /// </param>
+        /// <param name="metersProviderBuilder">
+        /// Optional action to customize the <see cref="MeterProviderBuilder"/> for metrics configurations.
+        /// If not provided, default metric settings will be applied.
+        /// </param>
+        /// <returns>The configured <see cref="HostApplicationBuilder"/> instance.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if the <see cref="HostApplicationBuilder"/> instance is null.
+        /// </exception>
+        public HostApplicationBuilder AddLowLatencyServiceDefaults(
+            Action<TracerProviderBuilder>? tracerProviderBuilder = null,
+            Action<MeterProviderBuilder>? metersProviderBuilder = null)
+        {
+            ArgumentNullException.ThrowIfNull(builder);
+            return builder
+                .AddServiceDefaults(tracerProviderBuilder, metersProviderBuilder, httpClientBuilder =>
+                {
+                    httpClientBuilder
+                        .AddServiceDiscovery()
+                        .AddStandardResilienceHandler();
+                });
+        }
+
+        /// <summary>
+        /// Configures the provided <see cref="HostApplicationBuilder"/> with default settings tailored for backend services.
+        /// This includes logging, OpenTelemetry instrumentation, health checks, service discovery, HTTP client configurations,
+        /// and resilience mechanisms such as rate limiting, retry policies, and circuit breakers.
+        /// </summary>
+        /// <param name="tracerProviderBuilder">
+        /// Optional action to customize the <see cref="TracerProviderBuilder"/> for tracing configurations.
+        /// If not provided, default tracing settings are applied for backend services.
+        /// </param>
+        /// <param name="metersProviderBuilder">
+        /// Optional action to customize the <see cref="MeterProviderBuilder"/> for metrics configurations.
+        /// If not provided, default metric settings are applied for backend services.
+        /// </param>
+        /// <returns>The configured <see cref="HostApplicationBuilder"/> instance.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if the <see cref="HostApplicationBuilder"/> instance is null.
+        /// </exception>
+        public HostApplicationBuilder AddBackendServiceDefaults(
+            Action<TracerProviderBuilder>? tracerProviderBuilder = null,
+            Action<MeterProviderBuilder>? metersProviderBuilder = null)
+        {
+            ArgumentNullException.ThrowIfNull(builder);
+            const string optionsName = "Backend";
+
+            return builder
+                .AddServiceDefaults(tracerProviderBuilder, metersProviderBuilder, httpClientBuilder =>
+                {
+                    httpClientBuilder
+                        .AddServiceDiscovery()
+                        .AddResilienceHandler(optionsName, (piplineBuilder, context) =>
+                        {
+                            var name = $"{httpClientBuilder.Name}-{optionsName}";
+
+                            _ = builder.Services.AddOptionsWithValidateOnStart<HttpStandardResilienceOptions>(name);
+
+                            var monitor = context.ServiceProvider.GetRequiredService<IOptionsMonitor<HttpStandardResilienceOptions>>();
+                            var options = monitor.Get(name);
+
+                            _ = piplineBuilder
+                                .AddRateLimiter(options.RateLimiter)
+                                .AddRetry(options.Retry)
+                                .AddCircuitBreaker(options.CircuitBreaker);
+                        });
+                });
         }
 
         private HostApplicationBuilder AddOpenTelemetryExporters()
