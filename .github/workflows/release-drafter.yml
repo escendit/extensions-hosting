@@ -45,7 +45,7 @@ jobs:
         uses: release-drafter/release-drafter@v7
         with:
           prerelease: ${{ github.event.inputs.release-type != 'release' }}
-          prerelease-identifier: ${{ github.event.inputs.identifier }}
-          include-pre-releases: ${{ github.event.inputs.include-pre-releases }}
+          prerelease-identifier: ${{ github.event.inputs.identifier || 'rc' }}
+          include-pre-releases: ${{ github.event.inputs.include-pre-releases || 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
