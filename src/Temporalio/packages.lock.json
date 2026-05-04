@@ -55,21 +55,21 @@
       },
       "Temporalio.Extensions.Hosting": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "eT1Q1ivxOT5D1mQ+tYRLtVEP41ACHxU+UMleLBPzBVNT0zA9hX1z11/YdlAXrbK1xuzWHSRJU6VKx6btBXxtFQ==",
+        "requested": "[1.14.0, )",
+        "resolved": "1.14.0",
+        "contentHash": "d/FD9EHH+xe1/Gn9+Eab8Adu0ZStvs50jUJUQea9M90ErOG0KD0TruEYwLYpUJsHPR5IK15I/omLqRid8RMm3Q==",
         "dependencies": {
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.14.0"
         }
       },
       "Temporalio.Extensions.OpenTelemetry": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "cU0e6yz7GmgdQfN0/TuZQIDf8R+m7Jv3Ngmgxc7qrToWC73iPPo4to2Q46rfT2UmOpnq0aLAE2ryNlXNoeN6ug==",
+        "requested": "[1.14.0, )",
+        "resolved": "1.14.0",
+        "contentHash": "d90yecpGpRWzJ5vJiJltcnRSKQhNJ27OFyTCcxbTYuzZd17EVjdjmTdKGd2SXqdb9qWgCEri+J/im0PxeETUWw==",
         "dependencies": {
-          "OpenTelemetry.Api": "1.4.0",
-          "Temporalio": "1.7.0"
+          "OpenTelemetry.Api": "1.15.3",
+          "Temporalio": "1.14.0"
         }
       },
       "Google.Protobuf": {
@@ -138,6 +138,11 @@
         "dependencies": {
           "Microsoft.Extensions.Compliance.Abstractions": "10.0.0"
         }
+      },
+      "NexusRpc": {
+        "type": "Transitive",
+        "resolved": "0.3.0",
+        "contentHash": "Kr+NMSZ5428AvxpzShdJcQxc9w6HT8SM6FXQMekC4K9wGpmC1m/L2pQJydpvVTwRBu3qAIYKPI37KWexF4Gtcg=="
       },
       "OpenTelemetry.Api.ProviderBuilderExtensions": {
         "type": "Transitive",
@@ -301,10 +306,11 @@
       "Temporalio": {
         "type": "CentralTransitive",
         "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "XIZa5utarbPj32ocGHX6VTUnYZ0O/2cdCc0/7G+a8Rg8o0CydW59QP6DbrI4LcftFIuhIfFtMb2N+W5brQ01Sw==",
+        "resolved": "1.14.0",
+        "contentHash": "deFu7h4hhehuYQsJokSnu7L17pyyhJAqrl+qNGeG7TirtfetBm9l/LmEyPRlg9/XLL8k5NRz95tcTlR//9MMhA==",
         "dependencies": {
-          "Google.Protobuf": "3.26.1"
+          "Google.Protobuf": "3.26.1",
+          "NexusRpc": "0.3.0"
         }
       }
     }
