@@ -1,6 +1,6 @@
 # Hosting Extensions for .NET Applications
 
-[![Build Status](https://github.com/escendit/extensions-hosting/actions/workflows/build.yml/badge.svg)](https://github.com/escendit/extensions-hosting/actions/workflows/build.yml)
+[![Build Status](https://github.com/escendit/extensions-hosting/actions/workflows/package.yml/badge.svg)](https://github.com/escendit/extensions-hosting/actions/workflows/package.yml)
 [![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.Orleans.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.Orleans)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 

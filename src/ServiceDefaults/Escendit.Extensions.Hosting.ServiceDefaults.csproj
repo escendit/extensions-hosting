@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Escendit.Extensions.Hosting.ServiceDefaults provides shared defaults for OpenTelemetry, Health Checks, and Service Discovery for .NET applications.</Description>
+  </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App"/>
   </ItemGroup>
