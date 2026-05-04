@@ -23,4 +23,10 @@
     <AdditionalFiles Include="PublicAPI.Unshipped.txt"/>
     <AdditionalFiles Include="PublicAPI.Shipped.txt"/>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath/>
+    </None>
+  </ItemGroup>
 </Project>
