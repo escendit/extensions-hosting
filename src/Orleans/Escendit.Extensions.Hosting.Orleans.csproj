@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Escendit.Extensions.Hosting.Orleans provides streamlined hosting extensions for Microsoft Orleans, offering simplified configuration and dependency injection setup for building robust, distributed applications.</Description>
+  </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App"/>
   </ItemGroup>
