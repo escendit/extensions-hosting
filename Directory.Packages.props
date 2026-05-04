@@ -12,7 +12,7 @@
     <PackageVersion Include="CommunityToolkit.HighPerformance" Version="8.4.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="Dapper" Version="2.1.66" />
-    <PackageVersion Include="Escendit.Extensions.Workflows" Version="0.1.0-rc.1" />
+    <PackageVersion Include="Escendit.Extensions.Workflows" Version="0.1.0-rc.3" />
     <PackageVersion Include="Escendit.Tools.Branding" Version="1.2.0" />
     <PackageVersion Include="Escendit.Tools.CodeAnalysis.NetAnalyzers" Version="0.6.0" />
     <PackageVersion Include="Escendit.Tools.CodeAnalysis.StyleCopAnalyzers" Version="0.6.0" />
@@ -101,9 +101,9 @@
     <PackageVersion Include="System.ServiceModel.UnixDomainSocket" Version="8.1.2" />
     <PackageVersion Include="System.Web.Services.Description" Version="8.1.2" />
     <PackageVersion Include="Temporalio" Version="1.7.0" />
-    <PackageVersion Include="Temporalio.Extensions.Hosting" Version="1.7.0" />
+    <PackageVersion Include="Temporalio.Extensions.Hosting" Version="1.9.0" />
     <PackageVersion Include="Temporalio.Extensions.DiagnosticSource" Version="1.7.0" />
-    <PackageVersion Include="Temporalio.Extensions.OpenTelemetry" Version="1.7.0" />
+    <PackageVersion Include="Temporalio.Extensions.OpenTelemetry" Version="1.9.0" />
     <PackageVersion Include="xunit.v3" Version="3.0.0" />
     <PackageVersion Include="xunit.analyzers" Version="1.23.0" />
     <PackageVersion Include="xunit.categories" Version="3.0.1" />

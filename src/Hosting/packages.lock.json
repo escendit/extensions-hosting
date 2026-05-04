@@ -4,12 +4,13 @@
     "net10.0": {
       "Escendit.Extensions.Workflows": {
         "type": "Direct",
-        "requested": "[0.1.0-rc.1, )",
-        "resolved": "0.1.0-rc.1",
-        "contentHash": "Zw58p0tU2shYJlgvokhdQytXbDgYvjWkSwnpOY/i10fvC9IpRsqGClA3BqK7Uhm3U6DbfmaywTsSV320Wk46XA==",
+        "requested": "[0.1.0-rc.3, )",
+        "resolved": "0.1.0-rc.3",
+        "contentHash": "wkPZGKemYwN9VKcp4hQlNJ5KA/CqWblD384MedobFsqwy8/IWJbHPPCpPLJPLQ9ynIS2Sr3hXdpoS2/8UkrT3A==",
         "dependencies": {
-          "Temporalio.Extensions.Hosting": "1.7.0",
-          "Temporalio.Extensions.OpenTelemetry": "1.7.0"
+          "Microsoft.Extensions.DependencyInjection": "9.0.8",
+          "Temporalio.Extensions.Hosting": "1.9.0",
+          "Temporalio.Extensions.OpenTelemetry": "1.9.0"
         }
       },
       "Escendit.Tools.Branding": {
@@ -485,22 +486,22 @@
       },
       "Temporalio.Extensions.Hosting": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "eT1Q1ivxOT5D1mQ+tYRLtVEP41ACHxU+UMleLBPzBVNT0zA9hX1z11/YdlAXrbK1xuzWHSRJU6VKx6btBXxtFQ==",
+        "requested": "[1.9.0, )",
+        "resolved": "1.9.0",
+        "contentHash": "jN9Y1htuM1TnjwcFP3OgH8FTCHJgubWrWB9jMe/Muyaz11qnguxxWrJrMo6I15uQPYTQ2AJ3lLxJ5w+zSOwGlA==",
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.1",
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.9.0"
         }
       },
       "Temporalio.Extensions.OpenTelemetry": {
         "type": "Direct",
-        "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "cU0e6yz7GmgdQfN0/TuZQIDf8R+m7Jv3Ngmgxc7qrToWC73iPPo4to2Q46rfT2UmOpnq0aLAE2ryNlXNoeN6ug==",
+        "requested": "[1.9.0, )",
+        "resolved": "1.9.0",
+        "contentHash": "7KfqCB0oxxLAF72AxEJDXCLWPZKF2ofwjiHBHgx9P1IXn+dQAWlbMXWvPm4ESIm+RwcJQCn35d7fgpCOhRY2ug==",
         "dependencies": {
           "OpenTelemetry.Api": "1.4.0",
-          "Temporalio": "1.7.0"
+          "Temporalio": "1.9.0"
         }
       },
       "Fractions": {
@@ -1021,6 +1022,11 @@
         "resolved": "13.0.4",
         "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
       },
+      "NexusRpc": {
+        "type": "Transitive",
+        "resolved": "0.2.0",
+        "contentHash": "IomEdX2Lh+UMnh++XC+NXugfusOAPOOo2i8xogUILqgyfN2r+36HtPONawMt1VJeS8ucBce85AnTK6eeUeU0Vg=="
+      },
       "OpenTelemetry.Api.ProviderBuilderExtensions": {
         "type": "Transitive",
         "resolved": "1.15.3",
@@ -1436,11 +1442,12 @@
       "Temporalio": {
         "type": "CentralTransitive",
         "requested": "[1.7.0, )",
-        "resolved": "1.7.0",
-        "contentHash": "XIZa5utarbPj32ocGHX6VTUnYZ0O/2cdCc0/7G+a8Rg8o0CydW59QP6DbrI4LcftFIuhIfFtMb2N+W5brQ01Sw==",
+        "resolved": "1.9.0",
+        "contentHash": "BysoHnmFOPSNwkvqlDjdUdXhqt8s/qEBYFGY1kF0Jr74pkuHvfpHBqyBhWrZ02X2qTPYAwkfRqicug765L8sCw==",
         "dependencies": {
           "Google.Protobuf": "3.26.1",
-          "Microsoft.Extensions.Logging.Abstractions": "2.2.0"
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "NexusRpc": "0.2.0"
         }
       }
     }
