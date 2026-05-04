@@ -2,8 +2,6 @@
   <Folder Name="/docs/" />
   <Folder Name="/eng/" />
   <Folder Name="/src/">
-    <Project Path="src\Abstractions\Escendit.Extensions.Hosting.Abstractions.csproj" Type="C#" />
-    <Project Path="src\Hosting\Escendit.Extensions.Hosting.csproj" Type="C#" />
     <Project Path="src\Orleans\Escendit.Extensions.Hosting.Orleans.csproj" />
     <Project Path="src\ServiceDefaults\Escendit.Extensions.Hosting.ServiceDefaults.csproj" />
     <Project Path="src\Temporalio\Escendit.Extensions.Hosting.Temporalio.csproj" />
