@@ -63,55 +63,55 @@ jobs:
           name: coverage
           path: test-results/**/coverage.cobertura.xml
 
-    test-report:
-      name: Test Report
-      runs-on: ubuntu-latest
-      needs: check
-      if: needs.check.outputs.has_test_results == 'true'
-      permissions:
-        checks: write
-        contents: read
-        pull-requests: write
-      steps:
-        - name: Download Test Artifact
-          uses: actions/download-artifact@v8
-      with:
-        name: test
+  test-report:
+    name: Test Report
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.has_test_results == 'true'
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Download Test Artifact
+        uses: actions/download-artifact@v8
+    with:
+      name: test
 
-    - name: Generate Test Result Report(s)
-      uses: EnricoMi/publish-unit-test-result-action@v2
-      if: always()
-      with:
-        files: |
-          **/*.xml
+  - name: Generate Test Result Report(s)
+    uses: EnricoMi/publish-unit-test-result-action@v2
+    if: always()
+    with:
+      files: |
+        **/*.xml
 
-coverage-report:
-  name: Coverage Report
-  runs-on: ubuntu-latest
-  needs: check
-  if: needs.check.outputs.has_coverage == 'true'
-  permissions:
-    contents: read
-    pull-requests: write
-  steps:
-    - name: Download Coverage Artifact
-      uses: actions/download-artifact@v8
-      with:
-        name: coverage
+  coverage-report:
+    name: Coverage Report
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.has_coverage == 'true'
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Download Coverage Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: coverage
 
-    - name: Code Coverage Summary Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
-      with:
-        filename: '**/coverage.cobertura.xml'
-        badge: true
-        format: 'markdown'
-        output: 'both'
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: '**/coverage.cobertura.xml'
+          badge: true
+          format: 'markdown'
+          output: 'both'
 
-    - name: Add Coverage PR Comment
-      uses: marocchino/sticky-pull-request-comment@v2
-      with:
-        recreate: true
-        path: code-coverage-results.md
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: code-coverage-results.md
 
-    - name: Write to Job Summary
-      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+      - name: Write to Job Summary
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
