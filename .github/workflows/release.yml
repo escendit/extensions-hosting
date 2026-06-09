@@ -24,8 +24,10 @@ jobs:
 
       - name: Set VERSION from release tag
         id: version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          TAG="${{ github.event.release.tag_name }}"
+          TAG="${RELEASE_TAG}"
           TAG="${TAG:-v0.0.0}"
           VERSION="${TAG#v}"
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
