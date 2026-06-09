@@ -16,8 +16,6 @@ jobs:
     permissions:
       contents: read
       packages: read
-    outputs:
-      version: ${{ steps.version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
