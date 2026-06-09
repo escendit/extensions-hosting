@@ -70,6 +70,7 @@ jobs:
       - name: Download Test Artifact
         uses: actions/download-artifact@v8
         if: always()
+        continue-on-error: true
         with:
           name: test
 
@@ -91,6 +92,7 @@ jobs:
       - name: Download Coverage Artifact
         uses: actions/download-artifact@v8
         if: always()
+        continue-on-error: true
         with:
           name: coverage
 
