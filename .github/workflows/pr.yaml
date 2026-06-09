@@ -75,15 +75,15 @@ jobs:
     steps:
       - name: Download Test Artifact
         uses: actions/download-artifact@v8
-    with:
-      name: test
+        with:
+          name: test
 
-  - name: Generate Test Result Report(s)
-    uses: EnricoMi/publish-unit-test-result-action@v2
-    if: always()
-    with:
-      files: |
-        **/*.xml
+      - name: Generate Test Result Report(s)
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            **/*.xml
 
   coverage-report:
     name: Coverage Report
