@@ -1,8 +1,18 @@
 # Hosting Extensions for .NET Applications
 
-[![Build Status](https://github.com/escendit/extensions-hosting/actions/workflows/package.yml/badge.svg)](https://github.com/escendit/extensions-hosting/actions/workflows/package.yml)
-[![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.Orleans.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.Orleans)
+[![Build Status](https://github.com/escendit/extensions-hosting/actions/workflows/push.yml/badge.svg)](https://github.com/escendit/extensions-hosting/actions/workflows/push.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+## NuGet Packages
+
+| Package | Version |
+|---|---|
+| `Escendit.Extensions.Hosting.Orleans` | [![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.Orleans.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.Orleans) |
+| `Escendit.Extensions.Hosting.ServiceDefaults` | [![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.ServiceDefaults.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.ServiceDefaults) |
+| `Escendit.Extensions.Hosting.Temporalio` | [![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.Temporalio.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.Temporalio) |
+| `Escendit.Extensions.Hosting.UserSecrets` | [![NuGet Version](https://img.shields.io/nuget/v/Escendit.Extensions.Hosting.UserSecrets.svg)](https://www.nuget.org/packages/Escendit.Extensions.Hosting.UserSecrets) |
+
+
 
 This repository provides streamlined hosting extensions for .NET applications, offering simplified configuration and dependency injection setup for building robust, distributed applications. It provides opinionated defaults and convenient extension methods for integrating popular services like Temporal.io, Orleans, and OpenTelemetry.
 
