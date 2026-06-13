@@ -110,7 +110,7 @@ jobs:
           output: 'both'
 
       - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3.0.4
         with:
           recreate: true
           path: code-coverage-results.md
